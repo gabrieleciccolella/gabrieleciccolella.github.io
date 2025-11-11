@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- FAB lamp: bottone fisso in basso a destra -->
+
+  <!-- Floating lamp button -->
   <a class="fab-lamp"
      href="https://github.com/geen-tech/Progetto_FIA"
      target="_blank" rel="noopener noreferrer"
-     aria-label="Open Progetto_FIA on GitHub">
+     aria-label="Open Cancer Classification project on GitHub">
     <svg class="fab-lamp__icon" viewBox="0 0 24 24" aria-hidden="true">
       <path fill="#7950f2" d="M9 21h6v-1H9v1z"/>
       <path fill="#343a40" d="M12 2a7 7 0 0 0-4.79 11.98c.52.52 1.02 1.37 1.23 2.02.17.52.63 1 1.18 1h4.76c.55 0 1-.48 1.18-1 .21-.65.71-1.5 1.23-2.02A7 7 0 0 0 12 2z"/>
@@ -20,10 +21,17 @@
     View code
   </a>
 
-  <header class="hero">
-    <div class="container">
+  <!-- Hero with background image -->
+  <header class="hero" style="
+    background-image: url('assets/img/cancer_cell.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  ">
+    <div style="background: rgba(0,0,0,0.55); position:absolute; inset:0; z-index:0;"></div>
+    <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Cancer Cell Classification</h1>
-      <p class="subtitle reveal">End-to-end K-NN pipeline with thorough preprocessing, flexible validation, and metrics reporting.</p>
+      <p class="subtitle reveal">End-to-end K-NN pipeline with preprocessing, validation, and metrics reporting.</p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -36,73 +44,49 @@
     <section class="project-detail reveal">
       <h2>Overview</h2>
       <p>
-        This project develops a complete pipeline for the <strong>classification of cancer cells</strong> using
-        <strong>k-Nearest Neighbors (k-NN)</strong>, distinguishing benign vs. malignant samples. It provides
-        robust tools for data cleaning and preprocessing (missing-value handling, feature scaling, consistent splits),
-        multiple validation strategies, and rich metric visualization and export.
+        This project develops a full pipeline for the <strong>classification of cancer cells</strong> using
+        <strong>k-Nearest Neighbors (k-NN)</strong>, distinguishing benign from malignant samples. 
+        It provides robust tools for <strong>data cleaning, preprocessing, validation, and metric visualization</strong>.
       </p>
     </section>
 
     <section class="project-detail reveal">
-      <h2>Preprocessing</h2>
-      <ul class="bullets">
-        <li><strong>Data ingestion:</strong> CSV loading with schema checks; default path fallback (<code>Data/version_1.csv</code>).</li>
-        <li><strong>Cleaning:</strong> handling of missing values / invalid entries with informative errors on failure.</li>
-        <li><strong>Feature engineering:</strong> reproducible feature–label mapping.</li>
-        <li><strong>Scaling:</strong> normalization/standardization pipeline producing <code>scaled_data</code> for fair model comparison.</li>
-        <li><strong>Consistency:</strong> identical preprocessing steps applied across all validation splits.</li>
-      </ul>
-      <p class="hint">A full preprocessing phase was performed on the original dataset before model training and validation.</p>
+      <h2>Algorithm Performance</h2>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Accuracy (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>LDA</td><td>93.02</td></tr>
+          <tr><td>Decision Tree</td><td>89.07</td></tr>
+          <tr><td>Logistic Regression</td><td>96.96</td></tr>
+          <tr><td>SVM</td><td>91.76</td></tr>
+          <tr><td>KNN</td><td>89.62</td></tr>
+          <tr><td>Random Forest</td><td><strong>97.30</strong></td></tr>
+          <tr><td>Gaussian NB</td><td>84.94</td></tr>
+          <tr><td>AdaBoost</td><td>68.29</td></tr>
+        </tbody>
+      </table>
+      <p class="hint" style="text-align:center; margin-top:10px;">
+        The <strong>Random Forest</strong> model achieved the best performance with 97.3% accuracy.
+      </p>
     </section>
 
     <section class="project-detail reveal">
-      <h2>Model &amp; Validation</h2>
-      <ul class="bullets">
-        <li><strong>Core model:</strong> k-NN with configurable <code>k</code> and distance settings.</li>
-        <li><strong>Validation setup:</strong> interactive configuration via <code>setup_knn_validation()</code>.</li>
-        <li><strong>Strategies:</strong> <em>Random Subsampling</em>, <em>Stratified Validation</em>, and other split methods unified under a common interface.</li>
-        <li><strong>Label mapping:</strong> consistent mapping for metric calculation via <code>ValidationMapper</code>.</li>
-      </ul>
+      <h2>Implementation Overview</h2>
+      <p>
+        The project uses multiple algorithms and a small neural network to recognize a set of rehabilitation exercises. 
+        Each algorithm’s performance was compared to determine the most suitable model for this application. 
+        A comprehensive preprocessing phase was also carried out on the original dataset.
+      </p>
     </section>
 
-    <section class="project-detail reveal">
-      <h2>Metrics &amp; Reporting</h2>
-      <ul class="bullets">
-        <li><strong>Metric selection:</strong> choose metrics interactively with <code>Metrics.scegli_metriche()</code>.</li>
-        <li><strong>Visualization:</strong> unified viewer (<code>Visualizer</code>) for per-split metrics or averaged results (for subsampling/stratified schemes).</li>
-        <li><strong>Export:</strong> automatic save to <code>metrics_output.xlsx</code> for auditability and sharing.</li>
-      </ul>
-    </section>
-
-    <section class="project-detail reveal">
-      <h2>How the <code>main()</code> flow works</h2>
-      <pre style="white-space:pre-wrap;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:12px;">
-1) Ask for dataset path (fallback: <span>Data/version_1.csv</span>)
-2) Preprocess data → (success, features, labels, scaled_data)
-3) Configure k-NN validation → (k, strategy, K)
-4) Split data with selected strategy
-5) Map labels for metrics (ValidationMapper)
-6) Choose metrics (Metrics.scegli_metriche)
-7) Visualize metrics:
-   • If RandomSubsampling/StratifiedValidation → compute averages over K groups
-   • Else → display per-split results
-8) Save metrics to <span>metrics_output.xlsx</span>
-9) Handle errors gracefully (file not found, value errors, unexpected exceptions)
-      </pre>
-      <p class="hint">The program guides the user through preprocessing, validation setup, evaluation, and export—end to end.</p>
-    </section>
-
-    <section class="project-detail reveal">
-      <h2>Tech Stack</h2>
-      <ul class="bullets">
-        <li><strong>Python:</strong> data I/O, preprocessing, k-NN training, validation orchestration.</li>
-        <li><strong>Custom modules:</strong> <code>preprocesso</code>, <code>validazione</code>, <code>metriche</code> (Metrics &amp; Visualizer).</li>
-        <li><strong>Outputs:</strong> console logs, visual summaries, and Excel export of selected metrics.</li>
-      </ul>
-      <div class="cta-row">
-        <a class="btn btn--primary glow" href="projects.html">← Back to Projects</a>
-      </div>
-    </section>
+    <div class="cta-row">
+      <a class="btn btn--ghost" href="projects.html">← Back to Projects</a>
+    </div>
   </main>
 
   <footer class="footer">
@@ -112,12 +96,11 @@
   </footer>
 
   <script>
-    // small reveal animation
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
       el.classList.add('reveal--play');
     });
   </script>
+
 </body>
 </html>
-
