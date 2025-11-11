@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Earthquake Damage Prediction (Nepal) – [Your Name]</title>
   <link rel="stylesheet" href="style.css"/>
+  <meta name="description" content="Predicting building damage after earthquakes using Random Forest and LightGBM with nested cross-validation.">
 </head>
 <body>
   <!-- FAB lamp: bottone fisso in basso a destra -->
@@ -41,13 +42,17 @@
         Utilizza tecniche di machine learning (<strong>Random Forest</strong> e <strong>LightGBM</strong>), preprocessing avanzato e
         validazione rigorosa tramite <strong>nested cross-validation</strong> per garantire risultati affidabili e generalizzabili.
       </p>
+    </section>
+
+    <section class="project-detail reveal">
+      <h2>Approach</h2>
       <ul class="bullets">
-        <li><strong>Obiettivo:</strong> classificazione supervisionata del danno strutturale post-sisma.</li>
+        <li><strong>Setting:</strong> classificazione supervisionata del danno strutturale post-sisma.</li>
         <li><strong>Modelli principali:</strong> Random Forest (con <em>Randomized Search</em>) e LightGBM (ottimizzato con <em>Optuna</em>).</li>
         <li><strong>Valutazione:</strong> <em>Nested Cross-Validation 5×3</em>:
           <ul>
             <li>5-fold esterni per stimare la generalizzazione;</li>
-            <li>3-fold interni per il tuning degli iperparametri.</li>
+            <li>3-fold interni per selezionare i migliori iperparametri.</li>
           </ul>
         </li>
         <li><strong>Selezione finale:</strong> modello scelto in base alla media della metrica <strong>F1-micro</strong> sui 5 fold esterni.</li>
@@ -56,15 +61,13 @@
 
     <section class="project-detail reveal">
       <h2>Competition Result</h2>
-
       <!-- Sostituisci il src con il percorso reale del tuo screenshot nel repo -->
-      <!-- Esempio: assets/img/earthquake-rank.png -->
       <figure class="chart-wrap" style="text-align:center;">
         <img src="assets/img/earthquake-rank.png"
              alt="Leaderboard screenshot: best score 0.7532, current rank #74, 1 of 3 submissions used"
              style="max-width:100%; border-radius:12px; display:block; margin: 0 auto;"/>
         <figcaption style="color:#a9b3c9; margin-top:10px;">
-          Current rank <strong>#74</strong> (Best score <strong>0.7532</strong>) su <strong>8.000+</strong> partecipanti esperti di AI a livello globale.
+          Posizione attuale <strong>#74</strong> (Best score <strong>0.7532</strong>) su <strong>8.000+</strong> partecipanti esperti di AI in tutto il mondo.
         </figcaption>
       </figure>
       <div class="cta-row">
@@ -91,7 +94,7 @@
   </footer>
 
   <script>
-    // small reveal animation
+    // reveal-on-load animation
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
       el.classList.add('reveal--play');
@@ -99,4 +102,5 @@
   </script>
 </body>
 </html>
+
 
