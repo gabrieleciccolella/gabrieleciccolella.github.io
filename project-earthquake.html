@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Earthquake Damage Prediction (Nepal) – [Your Name]</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1 class="reveal">Earthquake Damage Prediction (Nepal)</h1>
+      <p class="subtitle reveal">Estimating building damage levels using predictive modeling.</p>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="projects.html" class="nav__link active">Projects</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="project-detail reveal">
+      <h2>Overview</h2>
+      <p>
+        Developed models to predict post-earthquake structural damage, integrating engineered features from building metadata and hazard indicators.
+      </p>
+      <ul class="bullets">
+        <li>Targets: ordinal/continuous damage levels depending on formulation.</li>
+        <li>Approach: baseline linear models, tree-based ensembles, and robust validation.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn--primary glow" href="projects.html">← Back to Projects</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2025 [Your Name]</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.animationDelay = (i * 120) + 'ms';
+      el.classList.add('reveal--play');
+    });
+  </script>
+</body>
+</html>
