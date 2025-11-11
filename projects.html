@@ -1,76 +1,96 @@
-<div class="card">
-  <h3>Rehabilitation Exercise Recognition Algorithm</h3>
-  <p>
-    Various machine learning algorithms were developed and tested for the recognition of rehabilitation exercises.
-    The following chart compares their performance in terms of accuracy.
-  </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects – [Your Name]</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="hero hero--projects">
+    <div class="container">
+      <h1 class="reveal">Projects</h1>
+      <p class="subtitle reveal">A curated selection of my academic and applied work across Machine Learning, Deep Learning, and Cybersecurity.</p>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="projects.html" class="nav__link active">Projects</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- Canvas per l'istogramma -->
-  <canvas id="accuracyChart" width="400" height="250"></canvas>
-</div>
+  <main class="container">
+    <section class="intro reveal">
+      <h2>What you’ll find here</h2>
+      <p>
+        Each project page includes a concise overview, technical stack, data sources, methodology, and key results.
+        Where relevant, I provide metrics, visualizations, and links to code repositories.
+      </p>
+    </section>
 
-<!-- Script per Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const ctx = document.getElementById('accuracyChart').getContext('2d');
-  const data = {
-    labels: ['LDA', 'DT', 'LR', 'SVM', 'KNN', 'RF', 'GNB', 'AB'],
-    datasets: [{
-      label: 'Model Accuracy (%)',
-      data: [93.02, 89.07, 96.96, 91.76, 89.62, 97.30, 84.94, 68.29],
-      backgroundColor: [
-        '#74c69d', '#52b788', '#40916c', '#2d6a4f', '#95d5b2', '#1b4332', '#a3b18a', '#dad7cd'
-      ],
-      borderColor: '#023e8a',
-      borderWidth: 1,
-      hoverBackgroundColor: function(context) {
-        const index = context.dataIndex;
-        return index === 5 ? '#0096c7' : '#0077b6'; // RF evidenziato (migliore)
-      },
-      hoverBorderWidth: 3
-    }]
-  };
+    <section class="grid reveal">
+      <!-- Card 1 -->
+      <article class="card">
+        <div class="card__tag">Human Activity Recognition</div>
+        <h3>Rehabilitation Exercise Recognition</h3>
+        <p>
+          Built and compared multiple ML models and a small neural network to recognize rehabilitation exercises, selecting the best-performing approach for this application.
+        </p>
+        <div class="card__meta">
+          <span class="pill">ML</span><span class="pill">Neural Net</span><span class="pill">Evaluation</span>
+        </div>
+        <a class="btn btn--primary glow" href="project-rehab.html" aria-label="View details about Rehabilitation Exercise Recognition">
+          View details →
+        </a>
+      </article>
 
-  const options = {
-    scales: {
-      y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Accuracy (%)',
-          color: '#023e8a',
-          font: { size: 14, weight: 'bold' }
-        },
-        ticks: { color: '#333' }
-      },
-      x: {
-        ticks: { color: '#333' }
-      }
-    },
-    plugins: {
-      legend: {
-        display: false
-      },
-      title: {
-        display: true,
-        text: 'Model Performance Comparison',
-        color: '#023e8a',
-        font: { size: 16, weight: 'bold' }
-      },
-      tooltip: {
-        backgroundColor: '#0077b6',
-        titleColor: 'white',
-        bodyColor: 'white',
-        borderWidth: 1,
-        borderColor: '#023e8a'
-      }
-    }
-  };
+      <!-- Card 2 -->
+      <article class="card">
+        <div class="card__tag">Medical AI</div>
+        <h3>Cancer Cell Classification</h3>
+        <p>
+          Supervised learning pipeline to identify cancerous cells from real-world datasets with high accuracy, emphasizing robust validation and interpretability.
+        </p>
+        <div class="card__meta">
+          <span class="pill">Classification</span><span class="pill">Metrics</span><span class="pill">Explainability</span>
+        </div>
+        <a class="btn btn--primary glow" href="project-cancer.html" aria-label="View details about Cancer Cell Classification">
+          View details →
+        </a>
+      </article>
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: data,
-    options: options
-  });
-</script>
+      <!-- Card 3 -->
+      <article class="card">
+        <div class="card__tag">Disaster Response</div>
+        <h3>Earthquake Damage Prediction (Nepal)</h3>
+        <p>
+          Predictive modeling to estimate the degree of structural devastation in buildings following the Nepal earthquake, supporting risk prioritization.
+        </p>
+        <div class="card__meta">
+          <span class="pill">Regression</span><span class="pill">Feature Eng.</span><span class="pill">Risk</span>
+        </div>
+        <a class="btn btn--primary glow" href="project-earthquake.html" aria-label="View details about Earthquake Damage Prediction">
+          View details →
+        </a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2025 [Your Name] · <a href="mailto:youremail@gmail.com">youremail@gmail.com</a></p>
+      <a class="btn btn--ghost" href="index.html">← Back to Home</a>
+    </div>
+  </footer>
+
+  <script>
+    // Simple reveal-on-load animation
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.animationDelay = (i * 120) + 'ms';
+      el.classList.add('reveal--play');
+    });
+  </script>
+</body>
+</html>
+
 
