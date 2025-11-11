@@ -10,7 +10,7 @@
   <header class="hero">
     <div class="container">
       <h1 class="reveal">Cancer Cell Classification</h1>
-      <p class="subtitle reveal">Supervised learning for high-accuracy detection of cancerous cells.</p>
+      <p class="subtitle reveal">End-to-end K-NN pipeline with thorough preprocessing, flexible validation, and metrics reporting.</p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -23,14 +23,73 @@
     <section class="project-detail reveal">
       <h2>Overview</h2>
       <p>
-        End-to-end classification pipeline including preprocessing, feature selection, model training, cross-validation, and calibrated decision thresholds.
+        This project develops a complete pipeline for the <strong>classification of cancer cells</strong> using
+        <strong>k-Nearest Neighbors (k-NN)</strong>, distinguishing benign vs. malignant samples. It provides
+        robust tools for data cleaning and preprocessing (missing-value handling, feature scaling, consistent splits),
+        multiple validation strategies, and rich metric visualization and export.
       </p>
+    </section>
+
+    <section class="project-detail reveal">
+      <h2>Preprocessing</h2>
       <ul class="bullets">
-        <li>Objective: binary classification of cancerous vs. non-cancerous samples.</li>
-        <li>Focus: accuracy, precision/recall balance, ROC-AUC, and interpretability via feature importance.</li>
+        <li><strong>Data ingestion:</strong> CSV loading with schema checks; default path fallback (<code>Data/version_1.csv</code>).</li>
+        <li><strong>Cleaning:</strong> handling of missing values / invalid entries with informative errors on failure.</li>
+        <li><strong>Feature engineering:</strong> reproducible feature–label mapping.</li>
+        <li><strong>Scaling:</strong> normalization/standardization pipeline producing <code>scaled_data</code> for fair model comparison.</li>
+        <li><strong>Consistency:</strong> identical preprocessing steps applied across all validation splits.</li>
+      </ul>
+      <p class="hint">A full preprocessing phase was performed on the original dataset before model training and validation.</p>
+    </section>
+
+    <section class="project-detail reveal">
+      <h2>Model &amp; Validation</h2>
+      <ul class="bullets">
+        <li><strong>Core model:</strong> k-NN with configurable <code>k</code> and distance settings.</li>
+        <li><strong>Validation setup:</strong> interactive configuration via <code>setup_knn_validation()</code>.</li>
+        <li><strong>Strategies:</strong> <em>Random Subsampling</em>, <em>Stratified Validation</em>, and other split methods unified under a common interface.</li>
+        <li><strong>Label mapping:</strong> consistent mapping for metric calculation via <code>ValidationMapper</code>.</li>
+      </ul>
+    </section>
+
+    <section class="project-detail reveal">
+      <h2>Metrics &amp; Reporting</h2>
+      <ul class="bullets">
+        <li><strong>Metric selection:</strong> choose metrics interactively with <code>Metrics.scegli_metriche()</code>.</li>
+        <li><strong>Visualization:</strong> unified viewer (<code>Visualizer</code>) for per-split metrics or averaged results (for subsampling/stratified schemes).</li>
+        <li><strong>Export:</strong> automatic save to <code>metrics_output.xlsx</code> for auditability and sharing.</li>
+      </ul>
+    </section>
+
+    <section class="project-detail reveal">
+      <h2>How the <code>main()</code> flow works</h2>
+      <pre style="white-space:pre-wrap;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:14px;border-radius:12px;">
+1) Ask for dataset path (fallback: <span>Data/version_1.csv</span>)
+2) Preprocess data → (success, features, labels, scaled_data)
+3) Configure k-NN validation → (k, strategy, K)
+4) Split data with selected strategy
+5) Map labels for metrics (ValidationMapper)
+6) Choose metrics (Metrics.scegli_metriche)
+7) Visualize metrics:
+   • If RandomSubsampling/StratifiedValidation → compute averages over K groups
+   • Else → display per-split results
+8) Save metrics to <span>metrics_output.xlsx</span>
+9) Handle errors gracefully (file not found, value errors, unexpected exceptions)
+      </pre>
+      <p class="hint">The program guides the user through preprocessing, validation setup, evaluation, and export—end to end.</p>
+    </section>
+
+    <section class="project-detail reveal">
+      <h2>Tech Stack</h2>
+      <ul class="bullets">
+        <li><strong>Python:</strong> data I/O, preprocessing, k-NN training, validation orchestration.</li>
+        <li><strong>Custom modules:</strong> <code>preprocesso</code>, <code>validazione</code>, <code>metriche</code> (Metrics &amp; Visualizer).</li>
+        <li><strong>Outputs:</strong> console logs, visual summaries, and Excel export of selected metrics.</li>
       </ul>
       <div class="cta-row">
         <a class="btn btn--primary glow" href="projects.html">← Back to Projects</a>
+        <!-- Placeholder per eventuale repo -->
+        <!-- <a class="btn btn--ghost" href="https://github.com/tuo-user/knn-cancer-classification" target="_blank" rel="noopener">View code on GitHub</a> -->
       </div>
     </section>
   </main>
@@ -42,6 +101,7 @@
   </footer>
 
   <script>
+    // small reveal animation
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
       el.classList.add('reveal--play');
@@ -49,3 +109,4 @@
   </script>
 </body>
 </html>
+
