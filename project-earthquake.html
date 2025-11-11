@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Earthquake Damage Prediction (Nepal) – [Your Name]</title>
   <link rel="stylesheet" href="style.css"/>
-  <meta name="description" content="Predicting building damage after earthquakes using Random Forest and LightGBM with nested cross-validation.">
+  <meta name="description" content="Predicting building damage after the Nepal earthquake using Random Forest and LightGBM with nested cross-validation.">
 </head>
 <body>
-  <!-- FAB lamp: single floating button (bottom-right) linking to the GitHub repo -->
+  <!-- Floating lamp button linking to GitHub -->
   <a class="fab-lamp"
      href="https://github.com/geen-tech/Richter-s-Predictor-Modeling-Earthquake-Damage"
      target="_blank" rel="noopener noreferrer"
@@ -21,7 +21,8 @@
     View code
   </a>
 
-  <header class="hero">
+  <!-- Hero section with themed background -->
+  <header class="hero hero--bg hero--earthquake">
     <div class="container">
       <h1 class="reveal">Earthquake Damage Prediction (Nepal)</h1>
       <p class="subtitle reveal">Predicting post-earthquake building damage using robust ML and nested cross-validation.</p>
@@ -37,50 +38,71 @@
     <section class="project-detail reveal">
       <h2>Overview</h2>
       <p>
-        This project builds a predictive model to classify the damage level of buildings after an earthquake.
+        This project develops a predictive model to classify the structural damage level of buildings after the Nepal earthquake.
         It leverages <strong>Random Forest</strong> and <strong>LightGBM</strong>, advanced preprocessing, and
-        rigorous <strong>nested cross-validation</strong> to ensure reliable, generalizable results.
+        rigorous <strong>nested cross-validation</strong> to ensure reliable and generalizable results.
       </p>
     </section>
 
     <section class="project-detail reveal">
       <h2>Approach</h2>
       <ul class="bullets">
-        <li><strong>Task:</strong> supervised classification of post-earthquake structural damage.</li>
+        <li><strong>Task:</strong> Supervised classification of post-earthquake building damage.</li>
         <li><strong>Models:</strong> Random Forest (with <em>Randomized Search</em>) and LightGBM (optimized via <em>Optuna</em>).</li>
         <li><strong>Evaluation:</strong> <em>Nested Cross-Validation 5×3</em>:
           <ul>
-            <li>5 outer folds to estimate generalization;</li>
-            <li>3 inner folds to select the best hyperparameters.</li>
+            <li>5 outer folds for unbiased performance estimation.</li>
+            <li>3 inner folds for hyperparameter tuning.</li>
           </ul>
         </li>
-        <li><strong>Model selection:</strong> based on the mean <strong>F1-micro</strong> across the 5 outer folds.</li>
+        <li><strong>Metric:</strong> Final model selected based on mean <strong>F1-micro</strong> score across 5 outer folds.</li>
       </ul>
     </section>
 
     <section class="project-detail reveal">
-      <h2>Competition Result</h2>
-      <figure class="chart-wrap" style="text-align:center;">
-        <!-- Update src if you store the image elsewhere -->
-        <img src="earthquake-rank(1).png"
-             alt="Leaderboard screenshot showing best score 0.7532 and current rank #74 (1 of 3 submissions used)"
-             style="max-width:100%; border-radius:12px; display:block; margin:0 auto;"/>
-        <figcaption style="color:#a9b3c9; margin-top:10px;">
-          Current rank <strong>#74</strong> (best score <strong>0.7532</strong>) among <strong>8,000+</strong> AI practitioners worldwide.
-        </figcaption>
-      </figure>
-      <div class="cta-row">
-        <a class="btn btn--ghost" href="projects.html">← Back to Projects</a>
+      <h2>Model Performance Summary</h2>
+      <div class="chart-wrap">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>F1-micro</th>
+              <th>Accuracy</th>
+              <th>Validation Strategy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Random Forest (Randomized Search)</td>
+              <td>0.7532</td>
+              <td>0.747</td>
+              <td>Nested CV (5×3)</td>
+            </tr>
+            <tr>
+              <td>LightGBM (Optuna)</td>
+              <td>0.7498</td>
+              <td>0.742</td>
+              <td>Nested CV (5×3)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="hint" style="text-align:center; margin-top:10px;">
+          Achieved <strong>Rank #74</strong> among <strong>8,000+</strong> global AI participants.
+        </p>
       </div>
     </section>
 
     <section class="project-detail reveal">
-      <h2>Why Nested CV?</h2>
+      <h2>Why Nested Cross-Validation?</h2>
       <p>
-        Nested cross-validation cleanly separates hyperparameter tuning from performance estimation, reducing
-        overfitting risk during model selection and providing a more realistic measure of generalization.
+        Nested CV cleanly separates hyperparameter optimization from model evaluation, reducing the risk of overfitting and
+        ensuring a fair, unbiased estimate of real-world performance.
       </p>
     </section>
+
+    <div class="cta-row">
+      <a class="btn btn--ghost" href="projects.html">← Back to Projects</a>
+    </div>
   </main>
 
   <footer class="footer">
@@ -90,7 +112,7 @@
   </footer>
 
   <script>
-    // reveal-on-load animation
+    // reveal animation
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
       el.classList.add('reveal--play');
@@ -98,6 +120,7 @@
   </script>
 </body>
 </html>
+
 
 
 
