@@ -1,0 +1,94 @@
+/* ---------- GENERAL ---------- */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+header {
+  background-color: #0077b6;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+nav {
+  background-color: #023e8a;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #90e0ef;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+h2 {
+  color: #023e8a;
+}
+
+/* ---------- BUTTONS ---------- */
+.button {
+  display: inline-block;
+  background-color: #0077b6;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+  margin-top: 1rem;
+}
+
+.button:hover {
+  background-color: #0096c7;
+}
+
+/* ---------- PROJECT CARDS ---------- */
+.projects {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.card h3 {
+  color: #0077b6;
+  margin-top: 0;
+}
+
+footer {
+  text-align: center;
+  background-color: #023e8a;
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+}
