@@ -92,3 +92,13 @@ footer {
   padding: 1rem;
   margin-top: 2rem;
 }
+canvas {
+  max-width: 100%;
+  margin-top: 1rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
