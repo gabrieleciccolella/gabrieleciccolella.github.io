@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Earthquake Damage Prediction (Nepal) – [Your Name]</title>
   <link rel="stylesheet" href="style.css"/>
-  <meta name="description" content="Predicting building damage after the Nepal earthquake using Random Forest and LightGBM with nested cross-validation.">
 </head>
 <body>
+
   <!-- Floating lamp button linking to GitHub -->
   <a class="fab-lamp"
      href="https://github.com/geen-tech/Richter-s-Predictor-Modeling-Earthquake-Damage"
@@ -21,9 +21,15 @@
     View code
   </a>
 
-  <!-- Hero section with themed background -->
-  <header class="hero hero--bg hero--earthquake">
-    <div class="container">
+  <!-- Hero with background image -->
+  <header class="hero" style="
+    background-image: url('assets/img/terrremoto_nepal.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  ">
+    <div style="background: rgba(0,0,0,0.55); position:absolute; inset:0; z-index:0;"></div>
+    <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Earthquake Damage Prediction (Nepal)</h1>
       <p class="subtitle reveal">Predicting post-earthquake building damage using robust ML and nested cross-validation.</p>
       <nav class="nav">
@@ -61,42 +67,32 @@
 
     <section class="project-detail reveal">
       <h2>Model Performance Summary</h2>
-      <div class="chart-wrap">
-        <table class="results-table">
-          <thead>
-            <tr>
-              <th>Model</th>
-              <th>F1-micro</th>
-              <th>Accuracy</th>
-              <th>Validation Strategy</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Random Forest (Randomized Search)</td>
-              <td>0.7532</td>
-              <td>0.747</td>
-              <td>Nested CV (5×3)</td>
-            </tr>
-            <tr>
-              <td>LightGBM (Optuna)</td>
-              <td>0.7498</td>
-              <td>0.742</td>
-              <td>Nested CV (5×3)</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="hint" style="text-align:center; margin-top:10px;">
-          Achieved <strong>Rank #74</strong> among <strong>8,000+</strong> global AI participants.
-        </p>
-      </div>
-    </section>
-
-    <section class="project-detail reveal">
-      <h2>Why Nested Cross-Validation?</h2>
-      <p>
-        Nested CV cleanly separates hyperparameter optimization from model evaluation, reducing the risk of overfitting and
-        ensuring a fair, unbiased estimate of real-world performance.
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>F1-micro</th>
+            <th>Accuracy</th>
+            <th>Validation Strategy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Random Forest (Randomized Search)</td>
+            <td>0.7532</td>
+            <td>0.747</td>
+            <td>Nested CV (5×3)</td>
+          </tr>
+          <tr>
+            <td>LightGBM (Optuna)</td>
+            <td>0.7498</td>
+            <td>0.742</td>
+            <td>Nested CV (5×3)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="hint" style="text-align:center; margin-top:10px;">
+        Achieved <strong>Rank #74</strong> among <strong>8,000+</strong> global AI participants.
       </p>
     </section>
 
@@ -112,15 +108,11 @@
   </footer>
 
   <script>
-    // reveal animation
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
       el.classList.add('reveal--play');
     });
   </script>
+
 </body>
 </html>
-
-
-
-
