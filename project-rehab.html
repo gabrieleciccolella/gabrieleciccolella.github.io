@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rehabilitation Exercise Recognition – [Your Name]</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1 class="reveal">Rehabilitation Exercise Recognition</h1>
+      <p class="subtitle reveal">Model comparison for supervised recognition of rehabilitation exercises.</p>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="projects.html" class="nav__link active">Projects</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="project-detail reveal">
+      <h2>Overview</h2>
+      <p>
+        I developed several machine learning algorithms and a small neural network to recognize a set of rehabilitation exercises.
+        I compared their performance to identify the most suitable model for this application.
+      </p>
+      <ul class="bullets">
+        <li>Algorithms: LDA, Decision Tree, Logistic Regression, SVM, KNN, Random Forest, Gaussian Naive Bayes, AdaBoost.</li>
+        <li>Metric: Accuracy (%), evaluated via consistent splits and identical preprocessing across models.</li>
+      </ul>
+    </section>
+
+    <section class="reveal">
+      <h2>Results (Accuracy)</h2>
+      <div class="chart-wrap">
+        <canvas id="accuracyChart" width="900" height="420" aria-label="Bar chart of model accuracies"></canvas>
+      </div>
+      <p class="hint">Best model highlighted. Hover bars for exact values.</p>
+    </section>
+
+    <section class="project-detail reveal">
+      <h2>Key Takeaways</h2>
+      <p>
+        Random Forest achieved the best performance (97.30%), followed closely by Logistic Regression (96.96%) and LDA (93.02%),
+        making ensemble and linear models particularly effective for this dataset.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn--primary glow" href="projects.html">← Back to Projects</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2025 [Your Name]</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const labels = ['LDA','DT','LR','SVM','KNN','RF','GNB','AB'];
+    const values = [93.02, 89.07, 96.96, 91.76, 89.62, 97.30, 84.94, 68.29];
+    const bestIndex = values.indexOf(Math.max(...values));
+
+    const ctx = document.getElementById('accuracyChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Accuracy (%)',
+          data: values,
+          borderWidth: 0,
+          backgroundColor: labels.map((_, i) => i === bestIndex ? 'rgba(0, 150, 199, 0.95)' : 'rgba(2, 62, 138, 0.85)'),
+          hoverBackgroundColor: labels.map((_, i) => i === bestIndex ? 'rgba(0, 150, 199, 1)' : 'rgba(2, 62, 138, 1)'),
+          borderRadius: 8
+        }]
+      },
+      options: {
+        animation: { duration: 900, easing: 'easeOutQuart' },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Accuracy (%)' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: { label: (ctx) => `${ctx.parsed.y.toFixed(2)}%` }
+          },
+          title: {
+            display: true,
+            text: 'Model Performance Comparison',
+            padding: { top: 8, bottom: 12 }
+          }
+        }
+      }
+    });
+
+    // small reveal animation
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.animationDelay = (i * 120) + 'ms';
+      el.classList.add('reveal--play');
+    });
+  </script>
+</body>
+</html>
