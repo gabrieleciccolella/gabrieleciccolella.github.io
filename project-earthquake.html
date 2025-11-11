@@ -7,10 +7,24 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <!-- FAB lamp: bottone fisso in basso a destra -->
+  <a class="fab-lamp"
+     href="https://github.com/geen-tech/Richter-s-Predictor-Modeling-Earthquake-Damage"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Open Richter’s Predictor project on GitHub">
+    <!-- icona lampadina SVG -->
+    <svg class="fab-lamp__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="#7950f2" d="M9 21h6v-1H9v1z"/>
+      <path fill="#343a40" d="M12 2a7 7 0 0 0-4.79 11.98c.52.52 1.02 1.37 1.23 2.02.17.52.63 1 1.18 1h4.76c.55 0 1-.48 1.18-1 .21-.65.71-1.5 1.23-2.02A7 7 0 0 0 12 2z"/>
+      <path fill="#ffe066" d="M12 4a5 5 0 0 0-3.41 8.59c.39.39.77 1.05.94 1.53.08.24.29.38.52.38h3.9c.23 0 .44-.14.52-.38.17-.48.55-1.14.94-1.53A5 5 0 0 0 12 4z"/>
+    </svg>
+    View code
+  </a>
+
   <header class="hero">
     <div class="container">
       <h1 class="reveal">Earthquake Damage Prediction (Nepal)</h1>
-      <p class="subtitle reveal">Estimating building damage levels using predictive modeling.</p>
+      <p class="subtitle reveal">Predicting post-earthquake building damage with robust ML and nested cross-validation.</p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -23,15 +37,50 @@
     <section class="project-detail reveal">
       <h2>Overview</h2>
       <p>
-        Developed models to predict post-earthquake structural damage, integrating engineered features from building metadata and hazard indicators.
+        Il progetto sviluppa un modello predittivo per classificare il grado di danneggiamento degli edifici dopo un terremoto.
+        Utilizza tecniche di machine learning (<strong>Random Forest</strong> e <strong>LightGBM</strong>), preprocessing avanzato e
+        validazione rigorosa tramite <strong>nested cross-validation</strong> per garantire risultati affidabili e generalizzabili.
       </p>
       <ul class="bullets">
-        <li>Targets: ordinal/continuous damage levels depending on formulation.</li>
-        <li>Approach: baseline linear models, tree-based ensembles, and robust validation.</li>
+        <li><strong>Obiettivo:</strong> classificazione supervisionata del danno strutturale post-sisma.</li>
+        <li><strong>Modelli principali:</strong> Random Forest (con <em>Randomized Search</em>) e LightGBM (ottimizzato con <em>Optuna</em>).</li>
+        <li><strong>Valutazione:</strong> <em>Nested Cross-Validation 5×3</em>:
+          <ul>
+            <li>5-fold esterni per stimare la generalizzazione;</li>
+            <li>3-fold interni per il tuning degli iperparametri.</li>
+          </ul>
+        </li>
+        <li><strong>Selezione finale:</strong> modello scelto in base alla media della metrica <strong>F1-micro</strong> sui 5 fold esterni.</li>
       </ul>
+    </section>
+
+    <section class="project-detail reveal">
+      <h2>Competition Result</h2>
+
+      <!-- Sostituisci il src con il percorso reale del tuo screenshot nel repo -->
+      <!-- Esempio: assets/img/earthquake-rank.png -->
+      <figure class="chart-wrap" style="text-align:center;">
+        <img src="assets/img/earthquake-rank.png"
+             alt="Leaderboard screenshot: best score 0.7532, current rank #74, 1 of 3 submissions used"
+             style="max-width:100%; border-radius:12px; display:block; margin: 0 auto;"/>
+        <figcaption style="color:#a9b3c9; margin-top:10px;">
+          Current rank <strong>#74</strong> (Best score <strong>0.7532</strong>) su <strong>8.000+</strong> partecipanti esperti di AI a livello globale.
+        </figcaption>
+      </figure>
       <div class="cta-row">
-        <a class="btn btn--primary glow" href="projects.html">← Back to Projects</a>
+        <a class="btn btn--primary glow"
+           href="https://github.com/geen-tech/Richter-s-Predictor-Modeling-Earthquake-Damage"
+           target="_blank" rel="noopener noreferrer">Open project on GitHub</a>
+        <a class="btn btn--ghost" href="projects.html">← Back to Projects</a>
       </div>
+    </section>
+
+    <section class="project-detail reveal">
+      <h2>Why Nested CV?</h2>
+      <p>
+        La nested cross-validation separa in maniera rigorosa la stima della performance dalla fase di ottimizzazione,
+        riducendo il rischio di overfitting durante il tuning e fornendo una misura più realistica della generalizzazione.
+      </p>
     </section>
   </main>
 
@@ -42,6 +91,7 @@
   </footer>
 
   <script>
+    // small reveal animation
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
       el.classList.add('reveal--play');
@@ -49,3 +99,4 @@
   </script>
 </body>
 </html>
+
