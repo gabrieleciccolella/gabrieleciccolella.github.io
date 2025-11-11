@@ -57,13 +57,14 @@ h1{ font-size: clamp(2rem, 3vw + 1rem, 3rem); margin: 0 0 8px; }
   border-radius: 12px;
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
-  transition: transform .18s ease, box-shadow .2s, color .2s, background .2s;
+  transition: transform .18s ease, box-shadow .2s, color .2s, background .2s, border-color .2s;
 }
 .nav__link:hover{
   transform: translateY(-2px);
   color: var(--text);
   box-shadow: var(--glow);
   background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.12);
 }
 .nav__link.active{
   color: var(--text);
@@ -90,7 +91,7 @@ main{ padding: 18px 0 56px; }
   padding: 20px;
   display: flex; flex-direction: column; gap: 12px;
   box-shadow: 0 10px 26px rgba(0,0,0,0.35);
-  transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease;
+  transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease, background .25s ease;
 }
 .card:hover{
   transform: translateY(-6px);
@@ -123,7 +124,8 @@ main{ padding: 18px 0 56px; }
   text-decoration: none;
   border: 1px solid rgba(255,255,255,0.08);
   color: var(--text);
-  transition: transform .18s ease, box-shadow .2s, border-color .2s, background .2s;
+  transition: transform .18s ease, box-shadow .2s, border-color .2s, background .2s, color .2s;
+  will-change: transform, box-shadow;
 }
 .btn--primary{
   background: linear-gradient(180deg, var(--primary), var(--primary-2));
@@ -143,9 +145,9 @@ main{ padding: 18px 0 56px; }
 
 /* ---------------- Detail Pages ---------------- */
 .project-detail{ margin: 18px 0 24px; }
-.bullets{ color: var(--muted); line-height: 1.6; }
+.bullets{ color: var(--muted); line-height: 1.6; padding-left: 18px; }
 .bullets li{ margin: 6px 0; }
-.cta-row{ margin-top: 14px; }
+.cta-row{ margin-top: 14px; display:flex; gap:10px; flex-wrap: wrap; }
 
 /* ---------------- Chart wrapper ---------------- */
 .chart-wrap{
@@ -155,6 +157,7 @@ main{ padding: 18px 0 56px; }
   padding: 16px;
   box-shadow: 0 10px 26px rgba(0,0,0,0.3);
 }
+canvas{ max-width: 100%; margin-top: 1rem; }
 
 /* ---------------- Footer ---------------- */
 .footer{
@@ -180,6 +183,12 @@ main{ padding: 18px 0 56px; }
 /* ---------------- Accessibility ---------------- */
 @media (prefers-reduced-motion: reduce){
   *{ animation: none !important; transition: none !important; }
+}
+
+/* ---------------- Responsive tweaks ---------------- */
+@media (max-width: 720px){
+  .nav{ gap: 10px; }
+  .footer__inner{ flex-direction: column; align-items: flex-start; }
 }
 
 /* ===== Lamp Highlight Button (FAB) ===== */
@@ -250,7 +259,7 @@ main{ padding: 18px 0 56px; }
 /* posizione alternativa (hero, non fixed) */
 .btn-hero-lamp{ margin-top: 14px; }
 
-/* accessibilità: riduci animazioni se richiesto dal sistema */
+/* accessibilità: riduci animazioni sul FAB se richiesto dal sistema */
 @media (prefers-reduced-motion: reduce){
   .fab-lamp, .fab-lamp__icon, .fab-lamp::after{
     animation: none !important;
@@ -258,8 +267,7 @@ main{ padding: 18px 0 56px; }
   }
 }
 
-/* spazio dal footer su schermi piccoli, evita sovrapposizioni */
+/* adatta FAB su schermi piccoli */
 @media (max-width: 720px){
   .fab-lamp{ right: 16px; bottom: 16px; }
 }
-
