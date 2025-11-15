@@ -10,7 +10,7 @@
 
   <!-- Hero section with background -->
   <header class="hero" style="
-    background-image: url('assets/img/rehab_background.jpg'); /* replace path as needed */
+    background-image: url('assets/img/rehab_background.jpg'); /* Replace with your path */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -18,7 +18,7 @@
     <div style="background: rgba(0,0,0,0.55); position:absolute; inset:0; z-index:0;"></div>
     <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Rehabilitation Exercise Recognition</h1>
-      <p class="subtitle reveal">Thesis project: Machine Learning models for the recognition of rehabilitation exercises.</p>
+      <p class="subtitle reveal">Bachelor’s Thesis in Industrial Engineering — Machine Learning for Human Motion Analysis</p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -33,18 +33,18 @@
     <section class="project-detail reveal">
       <h2>Thesis Overview</h2>
       <p>
-        This project was carried out as part of my <strong>Master’s thesis</strong> in Intelligent Systems Engineering.
-        The work focused on the development and evaluation of various <strong>Machine Learning algorithms</strong> for the
-        automatic recognition of <strong>rehabilitation exercises</strong>.
+        This project represents my <strong>Bachelor’s thesis in Industrial Engineering</strong> and focuses on the development 
+        of a machine learning system for recognizing rehabilitation exercises. The research aimed to analyze and 
+        compare multiple <strong>supervised learning algorithms</strong> applied to human motion data.
       </p>
       <p>
-        A set of physiotherapeutic exercises was selected in collaboration with medical professionals and performed
-        by a large number of patients under controlled conditions. The recorded movements were processed to build a
-        comprehensive dataset, which served as the foundation for training and validating multiple ML models.
+        A set of physiotherapeutic exercises was selected and performed by a large number of patients under 
+        standardized conditions. From these sessions, a structured dataset was created to train and evaluate 
+        several classification models capable of identifying which exercise was being executed.
       </p>
       <p>
-        The main objective was to evaluate the capability of different algorithms to accurately identify which exercise
-        was being performed, ensuring both <strong>robustness</strong> and <strong>generalization</strong> across subjects.
+        The study demonstrates how <strong>intelligent algorithms</strong> can support physiotherapists by automatically 
+        detecting exercise type and execution quality, paving the way for smart rehabilitation monitoring tools.
       </p>
     </section>
 
@@ -52,27 +52,26 @@
     <section class="project-detail reveal">
       <h2>Methodology</h2>
       <ul class="bullets">
-        <li><strong>Dataset:</strong> Built from motion data collected from numerous rehabilitation sessions.</li>
-        <li><strong>Features:</strong> Sensor-based spatial and temporal movement descriptors.</li>
-        <li><strong>Preprocessing:</strong> Normalization, noise reduction, and feature scaling.</li>
-        <li><strong>Models evaluated:</strong> LDA, Decision Tree, Logistic Regression, SVM, KNN, Random Forest, Gaussian NB, AdaBoost.</li>
-        <li><strong>Evaluation metric:</strong> Accuracy (%), computed using consistent preprocessing and cross-validation splits.</li>
+        <li><strong>Dataset:</strong> Constructed from kinematic data collected across multiple rehabilitation sessions.</li>
+        <li><strong>Preprocessing:</strong> Data cleaning, normalization, and feature scaling to ensure consistent input quality.</li>
+        <li><strong>Models tested:</strong> LDA, Decision Tree, Logistic Regression, SVM, KNN, Random Forest, Gaussian NB, AdaBoost.</li>
+        <li><strong>Evaluation metric:</strong> Accuracy (%) through repeated validation with identical preprocessing pipelines.</li>
       </ul>
     </section>
 
-    <!-- Results Chart -->
+    <!-- Chart -->
     <section class="reveal">
       <h2>Results (Accuracy)</h2>
-      <div class="chart-wrap">
-        <canvas id="accuracyChart" width="900" height="420" aria-label="Bar chart of model accuracies"></canvas>
+      <div class="chart-wrap" style="max-width:750px; margin:auto;">
+        <canvas id="accuracyChart" width="800" height="320" aria-label="Bar chart of model accuracies"></canvas>
       </div>
-      <p class="hint" style="text-align:center;">Best-performing model highlighted — hover bars for details.</p>
+      <p class="hint" style="text-align:center;">Best-performing model highlighted — hover for exact values.</p>
     </section>
 
     <!-- Summary Table -->
     <section class="project-detail reveal">
       <h2>Performance Summary</h2>
-      <table class="results-table">
+      <table class="results-table results-table--fancy">
         <thead>
           <tr>
             <th>Model</th>
@@ -85,13 +84,13 @@
           <tr><td>Logistic Regression</td><td>96.96</td></tr>
           <tr><td>SVM</td><td>91.76</td></tr>
           <tr><td>KNN</td><td>89.62</td></tr>
-          <tr><td>Random Forest</td><td><strong>97.30</strong></td></tr>
+          <tr class="highlight"><td>Random Forest</td><td><strong>97.30</strong></td></tr>
           <tr><td>Gaussian Naive Bayes</td><td>84.94</td></tr>
           <tr><td>AdaBoost</td><td>68.29</td></tr>
         </tbody>
       </table>
       <p class="hint" style="text-align:center; margin-top:10px;">
-        The <strong>Random Forest</strong> model achieved the highest accuracy (97.3%), followed by Logistic Regression (96.96%) and LDA (93.02%).
+        The <strong>Random Forest</strong> model achieved the highest accuracy (97.3%), outperforming all other algorithms.
       </p>
     </section>
 
@@ -99,13 +98,12 @@
     <section class="project-detail reveal">
       <h2>Conclusions</h2>
       <p>
-        The results demonstrate that ensemble methods and linear models perform particularly well for structured
-        rehabilitation data. The <strong>Random Forest classifier</strong> achieved the best overall accuracy, proving
-        highly effective in distinguishing among different exercise types.
+        The comparison of models demonstrated that ensemble and linear approaches yield the best generalization performance.
+        Random Forest achieved top accuracy, showing robustness against noise and variability in patient motion.
       </p>
       <p>
-        This study highlights the potential of data-driven systems to support physiotherapists in monitoring
-        rehabilitation progress and detecting execution errors in real time.
+        This thesis highlights how machine learning can enhance physiotherapy by offering reliable,
+        data-driven support for rehabilitation assessment and progress tracking.
       </p>
       <div class="cta-row" style="justify-content:center;">
         <a class="btn btn--primary glow" href="projects.html">← Back to Projects</a>
@@ -136,8 +134,8 @@
           label: 'Accuracy (%)',
           data: values,
           borderWidth: 0,
-          backgroundColor: labels.map((_, i) => i === bestIndex ? 'rgba(0, 150, 199, 0.95)' : 'rgba(2, 62, 138, 0.85)'),
-          hoverBackgroundColor: labels.map((_, i) => i === bestIndex ? 'rgba(0, 150, 199, 1)' : 'rgba(2, 62, 138, 1)'),
+          backgroundColor: labels.map((_, i) => i === bestIndex ? 'rgba(0, 150, 199, 0.95)' : 'rgba(2, 62, 138, 0.8)'),
+          hoverBackgroundColor: labels.map((_, i) => i === bestIndex ? 'rgba(0, 150, 199, 1)' : 'rgba(2, 62, 138, 0.95)'),
           borderRadius: 8
         }]
       },
@@ -157,9 +155,7 @@
         },
         plugins: {
           legend: { display: false },
-          tooltip: {
-            callbacks: { label: (ctx) => `${ctx.parsed.y.toFixed(2)}%` }
-          },
+          tooltip: { callbacks: { label: (ctx) => `${ctx.parsed.y.toFixed(2)}%` } },
           title: {
             display: true,
             text: 'Model Performance Comparison',
