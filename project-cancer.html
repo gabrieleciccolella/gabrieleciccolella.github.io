@@ -31,7 +31,7 @@
     <div style="background: rgba(0,0,0,0.55); position:absolute; inset:0; z-index:0;"></div>
     <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Cancer Cell Classification</h1>
-      <p class="subtitle reveal">End-to-end K-NN pipeline with preprocessing, validation, and metrics reporting.</p>
+      <p class="subtitle reveal">A complete k-NN based pipeline for the identification of benign and malignant cells.</p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -41,17 +41,59 @@
   </header>
 
   <main class="container">
+
+    <!-- Project Overview -->
     <section class="project-detail reveal">
-      <h2>Overview</h2>
+      <h2>Project Overview</h2>
       <p>
-        This project develops a full pipeline for the <strong>classification of cancer cells</strong> using
-        <strong>k-Nearest Neighbors (k-NN)</strong>, distinguishing benign from malignant samples. 
-        It provides robust tools for <strong>data cleaning, preprocessing, validation, and metric visualization</strong>.
+        The main goal of this project is to build a <strong>comprehensive machine learning pipeline</strong> for the 
+        classification of cancer cells, aiming to distinguish between <strong>benign</strong> and <strong>malignant</strong> samples. 
+        Using a combination of advanced <strong>data preprocessing</strong> and multiple <strong>validation strategies</strong> 
+        (Holdout, Random Subsampling, and Stratified Shuffle Split), the model ensures flexibility, robustness, 
+        and interpretability of results.
+      </p>
+      <p>
+        In the context of oncology, accurately distinguishing between benign and malignant cells is critical for 
+        early and reliable diagnosis. The dataset used in this study includes key cell-based metrics and indices 
+        that serve as important diagnostic features. This pipeline aims to offer a practical and data-driven 
+        decision-support tool for professionals in the medical field.
       </p>
     </section>
 
+    <!-- Validation Strategies -->
     <section class="project-detail reveal">
-      <h2>Algorithm Performance</h2>
+      <h2>Validation Strategies</h2>
+      <ul class="bullets">
+        <li><strong>Holdout:</strong> A classic split where the user selects the training percentage (e.g., 80%), and the rest is used for testing.</li>
+        <li><strong>Random Subsampling:</strong> Multiple random splits of the dataset. The user defines the number of iterations and training/test proportions.</li>
+        <li><strong>Stratified Validation:</strong> A variation that maintains class balance (benign/malignant) in each split, ideal for imbalanced datasets.</li>
+      </ul>
+      <p class="hint">Each strategy offers a different way to evaluate the model’s generalization and stability.</p>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="project-detail reveal">
+      <h2>Evaluation Metrics</h2>
+      <p>
+        Once the model evaluation is complete, several key metrics are automatically computed to provide a 
+        comprehensive view of performance:
+      </p>
+      <ul class="bullets">
+        <li><strong>Accuracy:</strong> Percentage of correctly classified samples.</li>
+        <li><strong>Error Rate:</strong> Percentage of misclassified samples.</li>
+        <li><strong>Sensitivity (Recall):</strong> Ability to correctly identify malignant cells.</li>
+        <li><strong>Specificity:</strong> Ability to correctly identify benign cells.</li>
+        <li><strong>Geometric Mean:</strong> Balances Sensitivity and Specificity for a more stable evaluation.</li>
+      </ul>
+      <p>
+        These metrics together offer a holistic view of model behavior, helping identify both strengths and 
+        weaknesses under different validation setups.
+      </p>
+    </section>
+
+    <!-- Algorithm Performance -->
+    <section class="project-detail reveal">
+      <h2>Algorithm Comparison</h2>
       <table class="results-table">
         <thead>
           <tr>
@@ -71,16 +113,8 @@
         </tbody>
       </table>
       <p class="hint" style="text-align:center; margin-top:10px;">
-        The <strong>Random Forest</strong> model achieved the best performance with 97.3% accuracy.
-      </p>
-    </section>
-
-    <section class="project-detail reveal">
-      <h2>Implementation Overview</h2>
-      <p>
-        The project uses multiple algorithms and a small neural network to recognize a set of rehabilitation exercises. 
-        Each algorithm’s performance was compared to determine the most suitable model for this application. 
-        A comprehensive preprocessing phase was also carried out on the original dataset.
+        The <strong>Random Forest</strong> classifier achieved the highest accuracy at <strong>97.3%</strong>, 
+        making it the best-performing model for this dataset.
       </p>
     </section>
 
