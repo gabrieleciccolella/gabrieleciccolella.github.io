@@ -7,10 +7,18 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
+
+  <!-- Hero section with background -->
+  <header class="hero" style="
+    background-image: url('assets/img/rehab_background.jpg'); /* replace path as needed */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  ">
+    <div style="background: rgba(0,0,0,0.55); position:absolute; inset:0; z-index:0;"></div>
+    <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Rehabilitation Exercise Recognition</h1>
-      <p class="subtitle reveal">Model comparison for supervised recognition of rehabilitation exercises.</p>
+      <p class="subtitle reveal">Thesis project: Machine Learning models for the recognition of rehabilitation exercises.</p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -20,36 +28,90 @@
   </header>
 
   <main class="container">
+
+    <!-- Overview -->
     <section class="project-detail reveal">
-      <h2>Overview</h2>
+      <h2>Thesis Overview</h2>
       <p>
-        I developed several machine learning algorithms and a small neural network to recognize a set of rehabilitation exercises.
-        I compared their performance to identify the most suitable model for this application.
+        This project was carried out as part of my <strong>Master’s thesis</strong> in Intelligent Systems Engineering.
+        The work focused on the development and evaluation of various <strong>Machine Learning algorithms</strong> for the
+        automatic recognition of <strong>rehabilitation exercises</strong>.
       </p>
+      <p>
+        A set of physiotherapeutic exercises was selected in collaboration with medical professionals and performed
+        by a large number of patients under controlled conditions. The recorded movements were processed to build a
+        comprehensive dataset, which served as the foundation for training and validating multiple ML models.
+      </p>
+      <p>
+        The main objective was to evaluate the capability of different algorithms to accurately identify which exercise
+        was being performed, ensuring both <strong>robustness</strong> and <strong>generalization</strong> across subjects.
+      </p>
+    </section>
+
+    <!-- Methodology -->
+    <section class="project-detail reveal">
+      <h2>Methodology</h2>
       <ul class="bullets">
-        <li>Algorithms: LDA, Decision Tree, Logistic Regression, SVM, KNN, Random Forest, Gaussian Naive Bayes, AdaBoost.</li>
-        <li>Metric: Accuracy (%), evaluated via consistent splits and identical preprocessing across models.</li>
+        <li><strong>Dataset:</strong> Built from motion data collected from numerous rehabilitation sessions.</li>
+        <li><strong>Features:</strong> Sensor-based spatial and temporal movement descriptors.</li>
+        <li><strong>Preprocessing:</strong> Normalization, noise reduction, and feature scaling.</li>
+        <li><strong>Models evaluated:</strong> LDA, Decision Tree, Logistic Regression, SVM, KNN, Random Forest, Gaussian NB, AdaBoost.</li>
+        <li><strong>Evaluation metric:</strong> Accuracy (%), computed using consistent preprocessing and cross-validation splits.</li>
       </ul>
     </section>
 
+    <!-- Results Chart -->
     <section class="reveal">
       <h2>Results (Accuracy)</h2>
       <div class="chart-wrap">
         <canvas id="accuracyChart" width="900" height="420" aria-label="Bar chart of model accuracies"></canvas>
       </div>
-      <p class="hint">Best model highlighted. Hover bars for exact values.</p>
+      <p class="hint" style="text-align:center;">Best-performing model highlighted — hover bars for details.</p>
     </section>
 
+    <!-- Summary Table -->
     <section class="project-detail reveal">
-      <h2>Key Takeaways</h2>
-      <p>
-        Random Forest achieved the best performance (97.30%), followed closely by Logistic Regression (96.96%) and LDA (93.02%),
-        making ensemble and linear models particularly effective for this dataset.
+      <h2>Performance Summary</h2>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Accuracy (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>LDA</td><td>93.02</td></tr>
+          <tr><td>Decision Tree</td><td>89.07</td></tr>
+          <tr><td>Logistic Regression</td><td>96.96</td></tr>
+          <tr><td>SVM</td><td>91.76</td></tr>
+          <tr><td>KNN</td><td>89.62</td></tr>
+          <tr><td>Random Forest</td><td><strong>97.30</strong></td></tr>
+          <tr><td>Gaussian Naive Bayes</td><td>84.94</td></tr>
+          <tr><td>AdaBoost</td><td>68.29</td></tr>
+        </tbody>
+      </table>
+      <p class="hint" style="text-align:center; margin-top:10px;">
+        The <strong>Random Forest</strong> model achieved the highest accuracy (97.3%), followed by Logistic Regression (96.96%) and LDA (93.02%).
       </p>
-      <div class="cta-row">
+    </section>
+
+    <!-- Conclusions -->
+    <section class="project-detail reveal">
+      <h2>Conclusions</h2>
+      <p>
+        The results demonstrate that ensemble methods and linear models perform particularly well for structured
+        rehabilitation data. The <strong>Random Forest classifier</strong> achieved the best overall accuracy, proving
+        highly effective in distinguishing among different exercise types.
+      </p>
+      <p>
+        This study highlights the potential of data-driven systems to support physiotherapists in monitoring
+        rehabilitation progress and detecting execution errors in real time.
+      </p>
+      <div class="cta-row" style="justify-content:center;">
         <a class="btn btn--primary glow" href="projects.html">← Back to Projects</a>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
@@ -58,6 +120,7 @@
     </div>
   </footer>
 
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     const labels = ['LDA','DT','LR','SVM','KNN','RF','GNB','AB'];
@@ -83,11 +146,13 @@
         scales: {
           y: {
             beginAtZero: true,
-            title: { display: true, text: 'Accuracy (%)' },
-            grid: { color: 'rgba(0,0,0,0.06)' }
+            title: { display: true, text: 'Accuracy (%)', color: '#e9f1ff' },
+            grid: { color: 'rgba(255,255,255,0.08)' },
+            ticks: { color: '#e9f1ff' }
           },
           x: {
-            grid: { display: false }
+            grid: { display: false },
+            ticks: { color: '#e9f1ff' }
           }
         },
         plugins: {
@@ -98,13 +163,14 @@
           title: {
             display: true,
             text: 'Model Performance Comparison',
+            color: '#e9f1ff',
             padding: { top: 8, bottom: 12 }
           }
         }
       }
     });
 
-    // small reveal animation
+    // Reveal animation
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
       el.classList.add('reveal--play');
