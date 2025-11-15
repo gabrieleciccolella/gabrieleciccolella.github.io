@@ -28,51 +28,78 @@
       </p>
     </section>
 
-    <section class="grid reveal">
-      <!-- Card 1 -->
-      <article class="card">
-        <div class="card__tag">Human Activity Recognition</div>
-        <h3>Rehabilitation Exercise Recognition</h3>
-        <p>
-          Built and compared multiple ML models and a small neural network to recognize rehabilitation exercises, selecting the best-performing approach for this application.
-        </p>
-        <div class="card__meta">
-          <span class="pill">ML</span><span class="pill">Neural Net</span><span class="pill">Evaluation</span>
+    <section class="projects-list reveal">
+
+      <!-- Project 1 -->
+      <article class="project-section">
+        <div class="project-content">
+          <div class="project-header">
+            <h3>🏃‍♂️ Rehabilitation Exercise Recognition</h3>
+            <span class="project-tag">Human Activity Recognition</span>
+          </div>
+          <p>
+            Built and compared multiple machine learning models and a small neural network to recognize rehabilitation exercises.
+            Various algorithms were evaluated to select the best-performing one for this application.
+          </p>
+          <div class="project-meta">
+            <span class="pill">ML</span>
+            <span class="pill">Neural Network</span>
+            <span class="pill">Evaluation</span>
+          </div>
+          <div class="button-center">
+            <a class="btn btn--primary glow" href="project-rehab.html">View details →</a>
+          </div>
         </div>
-        <a class="btn btn--primary glow" href="project-rehab.html" aria-label="View details about Rehabilitation Exercise Recognition">
-          View details →
-        </a>
       </article>
 
-      <!-- Card 2 -->
-      <article class="card">
-        <div class="card__tag">Medical AI</div>
-        <h3>Cancer Cell Classification</h3>
-        <p>
-          Supervised learning pipeline to identify cancerous cells from real-world datasets with high accuracy, emphasizing robust validation and interpretability.
-        </p>
-        <div class="card__meta">
-          <span class="pill">Classification</span><span class="pill">Metrics</span><span class="pill">Explainability</span>
+      <hr class="divider"/>
+
+      <!-- Project 2 -->
+      <article class="project-section">
+        <div class="project-content">
+          <div class="project-header">
+            <h3>🧬 Cancer Cell Classification</h3>
+            <span class="project-tag">Medical AI</span>
+          </div>
+          <p>
+            Developed a supervised learning pipeline to identify cancerous cells from real-world datasets with high accuracy,
+            using robust validation techniques and ensuring interpretability.
+          </p>
+          <div class="project-meta">
+            <span class="pill">Classification</span>
+            <span class="pill">Metrics</span>
+            <span class="pill">Explainability</span>
+          </div>
+          <div class="button-center">
+            <a class="btn btn--primary glow" href="project-cancer.html">View details →</a>
+          </div>
         </div>
-        <a class="btn btn--primary glow" href="project-cancer.html" aria-label="View details about Cancer Cell Classification">
-          View details →
-        </a>
       </article>
 
-      <!-- Card 3 -->
-      <article class="card">
-        <div class="card__tag">Disaster Response</div>
-        <h3>Earthquake Damage Prediction (Nepal)</h3>
-        <p>
-          Predictive modeling to estimate the degree of structural devastation in buildings following the Nepal earthquake, supporting risk prioritization.
-        </p>
-        <div class="card__meta">
-          <span class="pill">Regression</span><span class="pill">Feature Eng.</span><span class="pill">Risk</span>
+      <hr class="divider"/>
+
+      <!-- Project 3 -->
+      <article class="project-section">
+        <div class="project-content">
+          <div class="project-header">
+            <h3>🌍 Earthquake Damage Prediction (Nepal)</h3>
+            <span class="project-tag">Disaster Response</span>
+          </div>
+          <p>
+            Predictive modeling to estimate the level of structural damage to buildings after the Nepal earthquake,
+            supporting post-disaster decision-making and prioritization.
+          </p>
+          <div class="project-meta">
+            <span class="pill">Regression</span>
+            <span class="pill">Feature Engineering</span>
+            <span class="pill">Risk Assessment</span>
+          </div>
+          <div class="button-center">
+            <a class="btn btn--primary glow" href="project-earthquake.html">View details →</a>
+          </div>
         </div>
-        <a class="btn btn--primary glow" href="project-earthquake.html" aria-label="View details about Earthquake Damage Prediction">
-          View details →
-        </a>
       </article>
+
     </section>
   </main>
 
@@ -84,7 +111,6 @@
   </footer>
 
   <script>
-    // Simple reveal-on-load animation
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
       el.classList.add('reveal--play');
@@ -92,5 +118,3 @@
   </script>
 </body>
 </html>
-
-
