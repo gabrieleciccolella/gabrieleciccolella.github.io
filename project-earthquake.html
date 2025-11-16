@@ -7,51 +7,58 @@
   <link rel="stylesheet" href="style.css"/>
 
   <style>
-    /* Enhanced results table styling */
+    /* === Enhanced technical table === */
     .table-container {
       overflow-x: auto;
-      margin-top: 1rem;
+      margin-top: 1.2rem;
+      border-radius: 10px;
     }
 
-    .results-table--enhanced {
+    table.results-table--boxed {
       width: 100%;
       border-collapse: collapse;
-      border-radius: 12px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #11182e, #0e1530);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      background: #0f1530;
+      border: 1px solid rgba(255, 255, 255, 0.15);
       color: #e9f1ff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      border-radius: 10px;
+      overflow: hidden;
     }
 
-    .results-table--enhanced th,
-    .results-table--enhanced td {
+    table.results-table--boxed th,
+    table.results-table--boxed td {
       padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .results-table--enhanced th {
-      background: rgba(76, 201, 240, 0.12);
+    table.results-table--boxed th {
+      background: rgba(76, 201, 240, 0.15);
       color: #4cc9f0;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    .results-table--enhanced tr:nth-child(even) {
-      background: rgba(255, 255, 255, 0.02);
+    table.results-table--boxed tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.03);
     }
 
-    .results-table--enhanced tr:hover {
+    table.results-table--boxed tr:hover {
       background: rgba(76, 201, 240, 0.08);
       transition: background 0.25s ease;
     }
 
-    .highlight-row {
-      background: rgba(76, 201, 240, 0.15);
-      border-top: 1px solid rgba(76, 201, 240, 0.3);
-      border-bottom: 1px solid rgba(76, 201, 240, 0.3);
-      box-shadow: 0 0 15px rgba(76, 201, 240, 0.25);
+    table.results-table--boxed td {
+      font-size: 0.95rem;
+    }
+
+    table.results-table--boxed tr.highlight-row {
+      background: rgba(76, 201, 240, 0.18);
+      box-shadow: 0 0 15px rgba(76, 201, 240, 0.25) inset;
+      border-top: 2px solid rgba(76, 201, 240, 0.4);
+      border-bottom: 2px solid rgba(76, 201, 240, 0.4);
+      font-weight: 600;
     }
   </style>
 </head>
@@ -82,7 +89,7 @@
     <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Earthquake Damage Prediction (Nepal)</h1>
       <p class="subtitle reveal">
-        Predicting post-earthquake building damage using advanced ensemble ML techniques and nested cross-validation.
+        Predicting post-earthquake building damage using ensemble ML and nested cross-validation.
       </p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
@@ -93,14 +100,14 @@
   </header>
 
   <main class="container">
-    
+
     <!-- Overview -->
     <section class="project-detail reveal">
       <h2>Overview</h2>
       <p>
-        This project focuses on developing a <strong>predictive model</strong> to estimate building damage levels following the
-        <strong>2015 Nepal earthquake</strong>. It combines <strong>Random Forest</strong> and <strong>LightGBM</strong> models in an
-        <strong>ensemble approach</strong>, supported by rigorous <strong>nested cross-validation</strong> for reliable performance estimation.
+        This project develops a <strong>predictive model</strong> to classify the structural damage level of buildings after the 2015 Nepal earthquake.
+        It combines <strong>Random Forest</strong> and <strong>LightGBM</strong> models in an <strong>ensemble approach</strong>, evaluated with
+        rigorous <strong>nested cross-validation</strong> to ensure performance reliability and generalization.
       </p>
     </section>
 
@@ -112,12 +119,12 @@
         <li><strong>Models:</strong> Random Forest (Randomized Search) and LightGBM (Optuna optimization).</li>
         <li><strong>Evaluation:</strong> Nested Cross-Validation (5×3)
           <ul>
-            <li>5 outer folds for unbiased performance assessment.</li>
+            <li>5 outer folds for unbiased testing.</li>
             <li>3 inner folds for hyperparameter tuning.</li>
           </ul>
         </li>
-        <li><strong>Final Model:</strong> Ensemble of Random Forest and LightGBM for higher stability and accuracy.</li>
-        <li><strong>Metric:</strong> Mean <strong>F1-Micro</strong> and <strong>Accuracy</strong> across outer folds.</li>
+        <li><strong>Final Model:</strong> Ensemble of RF + LightGBM for improved generalization.</li>
+        <li><strong>Metrics:</strong> Mean <strong>F1-Micro</strong> and <strong>Accuracy</strong> across outer folds.</li>
       </ul>
     </section>
 
@@ -125,7 +132,7 @@
     <section class="project-detail reveal">
       <h2>Model Performance Summary</h2>
       <div class="table-container">
-        <table class="results-table results-table--enhanced">
+        <table class="results-table--boxed">
           <thead>
             <tr>
               <th>Model</th>
@@ -141,14 +148,14 @@
               <td>0.7491</td>
               <td>0.742</td>
               <td>Nested CV (5×3)</td>
-              <td>Strong baseline with consistent results.</td>
+              <td>Strong baseline with consistent results</td>
             </tr>
             <tr>
               <td>LightGBM (Optuna)</td>
               <td>0.7498</td>
               <td>0.743</td>
               <td>Nested CV (5×3)</td>
-              <td>Fast convergence and efficient tuning.</td>
+              <td>Fast convergence, efficient tuning</td>
             </tr>
             <tr class="highlight-row">
               <td><strong>Ensemble Model (RF + LightGBM)</strong></td>
@@ -171,12 +178,12 @@
     <section class="project-detail reveal">
       <h2>Conclusions</h2>
       <p>
-        The ensemble approach combining Random Forest and LightGBM achieved the most balanced and reliable results.
-        These findings underline the importance of model diversity and systematic validation in large-scale predictive modeling.
+        The ensemble of Random Forest and LightGBM achieved the most stable and accurate performance,
+        demonstrating the strength of combining multiple models under a robust validation framework.
       </p>
       <p>
-        This work demonstrates how data-driven intelligence can support <strong>disaster response</strong>,
-        improving resource allocation and enabling faster post-earthquake interventions.
+        These results show how <strong>data-driven systems</strong> can support real-world <strong>disaster response</strong>,
+        helping prioritize inspections and enhance resilience in post-earthquake recovery.
       </p>
       <div class="cta-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="projects.html">← Back to Projects</a>
@@ -198,6 +205,5 @@
       el.classList.add('reveal--play');
     });
   </script>
-
 </body>
 </html>
