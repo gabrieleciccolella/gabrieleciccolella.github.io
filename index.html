@@ -3,34 +3,200 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio - [Your Name]</title>
+  <title>Gabriele Ciccolella – Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ==== HERO STYLING ==== */
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, Arial, sans-serif;
+      background: radial-gradient(1000px at 20% -10%, #1a1f3a 0%, #0b1020 60%, #050812 100%);
+      color: #e9f1ff;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    header.hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 80px 20px 60px;
+      position: relative;
+      overflow: hidden;
+      background: url('assets/img/hero-bg.jpg') center/cover no-repeat; /* 🔹 Replace with your background */
+    }
+
+    header.hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    header.hero .content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    header.hero img.profile {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(76, 201, 240, 0.5);
+      box-shadow: 0 0 25px rgba(76, 201, 240, 0.35);
+      margin-bottom: 20px;
+    }
+
+    header.hero h1 {
+      font-size: 2.6rem;
+      margin: 10px 0 6px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    header.hero p {
+      font-size: 1.1rem;
+      color: #a9b3c9;
+      line-height: 1.5;
+    }
+
+    /* ==== NAV ==== */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #a9b3c9;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #fff;
+      background: rgba(76, 201, 240, 0.15);
+      box-shadow: 0 0 12px rgba(76, 201, 240, 0.25);
+    }
+
+    /* ==== MAIN ==== */
+    main {
+      text-align: center;
+      padding: 60px 20px 80px;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: #4cc9f0;
+    }
+
+    main p {
+      color: #c9d4f5;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 720px;
+      margin: 0 auto 30px;
+    }
+
+    /* ==== BUTTON ==== */
+    .button {
+      display: inline-block;
+      background: linear-gradient(90deg, #00b4d8, #4cc9f0);
+      color: #051018;
+      font-weight: 600;
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(76, 201, 240, 0.35);
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(76, 201, 240, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.08) inset;
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 20px 0;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #4cc9f0;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      header.hero h1 {
+        font-size: 2rem;
+      }
+      main h2 {
+        font-size: 1.6rem;
+      }
+      .button {
+        padding: 12px 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header>
-    <h1>[Your Name]</h1>
-    <p>Master’s student in Intelligent Systems Engineering<br>at Università Campus Bio-Medico di Roma</p>
+  <!-- ===== HERO SECTION ===== -->
+  <header class="hero">
+    <div class="content">
+      <!-- 🔹 Replace this image with your actual photo -->
+      <img src="assets/img/profile.jpg" alt="Photo of Gabriele Ciccolella" class="profile" />
+      <h1>Gabriele Ciccolella</h1>
+      <p>Master’s Student in Intelligent Systems Engineering<br>Università Campus Bio-Medico di Roma</p>
+    </div>
   </header>
 
+  <!-- ===== NAVIGATION ===== -->
   <nav>
     <a href="index.html" class="active">Home</a>
     <a href="projects.html">My Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
 
+  <!-- ===== MAIN CONTENT ===== -->
   <main>
     <section>
       <h2>Welcome 👋</h2>
       <p>
         I’m passionate about <strong>Machine Learning</strong>, <strong>Deep Learning</strong>, and <strong>Cybersecurity</strong>.  
-        This website showcases my academic projects and interests in AI-driven solutions.
+        My portfolio showcases academic and applied projects exploring data-driven solutions for intelligent systems.
       </p>
-      <a class="button" href="projects.html">View My Projects</a>
+      <a class="button" href="projects.html">🚀 View My Projects</a>
     </section>
   </main>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 [Your Name] | <a href="mailto:youremail@gmail.com">youremail@gmail.com</a></p>
+    <p>© 2025 Gabriele Ciccolella | 
+      <a href="mailto:gabriele.ciccolella02@gmail.com">gabriele.ciccolella02@gmail.com</a>
+    </p>
   </footer>
 </body>
 </html>
+
