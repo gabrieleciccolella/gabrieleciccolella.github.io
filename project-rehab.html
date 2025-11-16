@@ -10,7 +10,7 @@
 
   <!-- Hero section with background -->
   <header class="hero" style="
-    background-image: url('assets/img/fisioterapia.jpg'); /* replace path as needed */
+    background-image: url('assets/img/fisioterapia.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -18,7 +18,7 @@
     <div style="background: rgba(0,0,0,0.55); position:absolute; inset:0; z-index:0;"></div>
     <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Rehabilitation Exercise Recognition</h1>
-      <p class="subtitle reveal">Thesis project: Machine Learning models for the recognition of rehabilitation exercises.</p>
+      <p class="subtitle reveal">Bachelor’s Thesis in Industrial Engineering — Machine Learning for Human Motion Analysis</p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -33,18 +33,17 @@
     <section class="project-detail reveal">
       <h2>Thesis Overview</h2>
       <p>
-        This project was carried out as part of my <strong>Master’s thesis</strong> in Intelligent Systems Engineering.
-        The work focused on the development and evaluation of various <strong>Machine Learning algorithms</strong> for the
-        automatic recognition of <strong>rehabilitation exercises</strong>.
+        This project was carried out as part of my <strong>Bachelor’s thesis in Industrial Engineering</strong>.
+        The research focused on developing and evaluating various <strong>Machine Learning algorithms</strong>
+        for the automatic recognition of <strong>rehabilitation exercises</strong>.
       </p>
       <p>
-        A set of physiotherapeutic exercises was selected in collaboration with medical professionals and performed
-        by a large number of patients under controlled conditions. The recorded movements were processed to build a
-        comprehensive dataset, which served as the foundation for training and validating multiple ML models.
+        A set of physiotherapeutic exercises was selected and performed by multiple patients under controlled conditions.
+        The resulting motion data were processed to build a comprehensive dataset used for model training and validation.
       </p>
       <p>
-        The main objective was to evaluate the capability of different algorithms to accurately identify which exercise
-        was being performed, ensuring both <strong>robustness</strong> and <strong>generalization</strong> across subjects.
+        The goal was to assess each algorithm’s ability to accurately classify different exercises,
+        ensuring <strong>robustness</strong> and <strong>generalization</strong> across individuals.
       </p>
     </section>
 
@@ -52,19 +51,19 @@
     <section class="project-detail reveal">
       <h2>Methodology</h2>
       <ul class="bullets">
-        <li><strong>Dataset:</strong> Built from motion data collected from numerous rehabilitation sessions.</li>
-        <li><strong>Features:</strong> Sensor-based spatial and temporal movement descriptors.</li>
-        <li><strong>Preprocessing:</strong> Normalization, noise reduction, and feature scaling.</li>
+        <li><strong>Dataset:</strong> Constructed from kinematic and motion sensor data collected during rehabilitation sessions.</li>
+        <li><strong>Features:</strong> Spatial–temporal descriptors representing limb trajectories and acceleration patterns.</li>
+        <li><strong>Preprocessing:</strong> Missing-value handling, normalization, and feature scaling for consistency.</li>
         <li><strong>Models evaluated:</strong> LDA, Decision Tree, Logistic Regression, SVM, KNN, Random Forest, Gaussian NB, AdaBoost.</li>
-        <li><strong>Evaluation metric:</strong> Accuracy (%), computed using consistent preprocessing and cross-validation splits.</li>
+        <li><strong>Metric:</strong> Accuracy (%), computed with consistent cross-validation splits and preprocessing.</li>
       </ul>
     </section>
 
     <!-- Results Chart -->
     <section class="reveal">
       <h2>Results (Accuracy)</h2>
-      <div class="chart-wrap">
-        <canvas id="accuracyChart" width="900" height="420" aria-label="Bar chart of model accuracies"></canvas>
+      <div class="chart-wrap" style="max-width:700px; margin:auto;">
+        <canvas id="accuracyChart" width="760" height="300" aria-label="Bar chart of model accuracies"></canvas>
       </div>
       <p class="hint" style="text-align:center;">Best-performing model highlighted — hover bars for details.</p>
     </section>
@@ -72,7 +71,7 @@
     <!-- Summary Table -->
     <section class="project-detail reveal">
       <h2>Performance Summary</h2>
-      <table class="results-table">
+      <table class="results-table results-table--fancy">
         <thead>
           <tr>
             <th>Model</th>
@@ -85,7 +84,7 @@
           <tr><td>Logistic Regression</td><td>96.96</td></tr>
           <tr><td>SVM</td><td>91.76</td></tr>
           <tr><td>KNN</td><td>89.62</td></tr>
-          <tr><td>Random Forest</td><td><strong>97.30</strong></td></tr>
+          <tr class="highlight"><td>Random Forest</td><td><strong>97.30</strong></td></tr>
           <tr><td>Gaussian Naive Bayes</td><td>84.94</td></tr>
           <tr><td>AdaBoost</td><td>68.29</td></tr>
         </tbody>
@@ -99,13 +98,12 @@
     <section class="project-detail reveal">
       <h2>Conclusions</h2>
       <p>
-        The results demonstrate that ensemble methods and linear models perform particularly well for structured
-        rehabilitation data. The <strong>Random Forest classifier</strong> achieved the best overall accuracy, proving
-        highly effective in distinguishing among different exercise types.
+        The comparison of models revealed that ensemble and linear approaches yield the best generalization performance.
+        <strong>Random Forest</strong> proved to be the most accurate and stable across diverse patient data.
       </p>
       <p>
-        This study highlights the potential of data-driven systems to support physiotherapists in monitoring
-        rehabilitation progress and detecting execution errors in real time.
+        This work highlights the potential of intelligent algorithms to support physiotherapists in
+        monitoring rehabilitation progress and improving exercise quality assessment.
       </p>
       <div class="cta-row" style="justify-content:center;">
         <a class="btn btn--primary glow" href="projects.html">← Back to Projects</a>
@@ -136,8 +134,8 @@
           label: 'Accuracy (%)',
           data: values,
           borderWidth: 0,
-          backgroundColor: labels.map((_, i) => i === bestIndex ? 'rgba(0, 150, 199, 0.95)' : 'rgba(2, 62, 138, 0.85)'),
-          hoverBackgroundColor: labels.map((_, i) => i === bestIndex ? 'rgba(0, 150, 199, 1)' : 'rgba(2, 62, 138, 1)'),
+          backgroundColor: labels.map((_, i) => i === bestIndex ? 'rgba(0, 150, 199, 0.95)' : 'rgba(2, 62, 138, 0.8)'),
+          hoverBackgroundColor: labels.map((_, i) => i === bestIndex ? 'rgba(0, 150, 199, 1)' : 'rgba(2, 62, 138, 0.95)'),
           borderRadius: 8
         }]
       },
