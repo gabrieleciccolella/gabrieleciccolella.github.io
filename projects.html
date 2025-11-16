@@ -7,12 +7,17 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header class="hero hero--projects">
-    <div class="container">
+   <!-- Hero with background image -->
+  <header class="hero" style="
+    background-image: url('assets/img/AI.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  ">
+    <div style="background: rgba(0,0,0,0.55); position:absolute; inset:0; z-index:0;"></div>
+    <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Projects</h1>
-      <p class="subtitle reveal">
-        A curated selection of my academic and applied work in Machine Learning, Deep Learning, and Cybersecurity.
-      </p>
+      <p class="subtitle reveal"> A curated selection of my academic and applied work in Machine Learning, Deep Learning, and Cybersecurity.</p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -21,6 +26,8 @@
     </div>
   </header>
 
+  <main class="container">
+    
   <main class="container">
     <section class="intro reveal">
       <h2>Overview</h2>
