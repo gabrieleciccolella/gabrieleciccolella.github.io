@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Earthquake Damage Prediction (Nepal) – [Your Name]</title>
+  <title>Earthquake Damage Prediction (Nepal) – Gabriele Ciccolella</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -31,7 +31,7 @@
     <div style="background: rgba(0,0,0,0.55); position:absolute; inset:0; z-index:0;"></div>
     <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Earthquake Damage Prediction (Nepal)</h1>
-      <p class="subtitle reveal">Predicting post-earthquake building damage using robust ML and nested cross-validation.</p>
+      <p class="subtitle reveal">Predicting post-earthquake building damage using advanced ensemble ML techniques and nested cross-validation.</p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -41,33 +41,38 @@
   </header>
 
   <main class="container">
+    
+    <!-- Overview -->
     <section class="project-detail reveal">
       <h2>Overview</h2>
       <p>
-        This project develops a predictive model to classify the structural damage level of buildings after the Nepal earthquake.
-        It leverages <strong>Random Forest</strong> and <strong>LightGBM</strong>, advanced preprocessing, and
-        rigorous <strong>nested cross-validation</strong> to ensure reliable and generalizable results.
+        This project focuses on developing a <strong>predictive model</strong> for assessing the structural damage level of buildings following the <strong>2015 Nepal earthquake</strong>.
+        Leveraging an ensemble of multiple <strong>Machine Learning models</strong> — including <em>Random Forest</em> and <em>LightGBM</em> — and rigorous <strong>nested cross-validation</strong>,
+        the goal was to deliver accurate, reliable, and generalizable predictions for post-disaster damage assessment.
       </p>
     </section>
 
+    <!-- Approach -->
     <section class="project-detail reveal">
-      <h2>Approach</h2>
+      <h2>Methodology</h2>
       <ul class="bullets">
-        <li><strong>Task:</strong> Supervised classification of post-earthquake building damage.</li>
-        <li><strong>Models:</strong> Random Forest (with <em>Randomized Search</em>) and LightGBM (optimized via <em>Optuna</em>).</li>
-        <li><strong>Evaluation:</strong> <em>Nested Cross-Validation 5×3</em>:
+        <li><strong>Task:</strong> Supervised classification of post-earthquake building damage levels.</li>
+        <li><strong>Models:</strong> Random Forest (tuned via <em>Randomized Search</em>) and LightGBM (optimized with <em>Optuna</em>).</li>
+        <li><strong>Evaluation:</strong> <em>Nested Cross-Validation (5×3)</em>:
           <ul>
-            <li>5 outer folds for unbiased performance estimation.</li>
-            <li>3 inner folds for hyperparameter tuning.</li>
+            <li>5 outer folds for performance estimation.</li>
+            <li>3 inner folds for hyperparameter tuning and model selection.</li>
           </ul>
         </li>
-        <li><strong>Metric:</strong> Final model selected based on mean <strong>F1-micro</strong> score across 5 outer folds.</li>
+        <li><strong>Final Model:</strong> Ensemble of Random Forest and LightGBM for improved generalization.</li>
+        <li><strong>Metric:</strong> Mean <strong>F1-micro</strong> and <strong>Accuracy</strong> across outer folds.</li>
       </ul>
     </section>
 
+    <!-- Model Performance Summary -->
     <section class="project-detail reveal">
       <h2>Model Performance Summary</h2>
-      <table class="results-table">
+      <table class="results-table results-table--fancy">
         <thead>
           <tr>
             <th>Model</th>
@@ -79,34 +84,58 @@
         <tbody>
           <tr>
             <td>Random Forest (Randomized Search)</td>
-            <td>0.7532</td>
-            <td>0.747</td>
+            <td>0.7491</td>
+            <td>0.742</td>
             <td>Nested CV (5×3)</td>
           </tr>
           <tr>
             <td>LightGBM (Optuna)</td>
             <td>0.7498</td>
-            <td>0.742</td>
+            <td>0.743</td>
             <td>Nested CV (5×3)</td>
+          </tr>
+          <tr class="highlight">
+            <td><strong>Ensemble Model (RF + LightGBM)</strong></td>
+            <td><strong>0.7532</strong></td>
+            <td><strong>0.747</strong></td>
+            <td><em>Final Ensemble Evaluation</em></td>
           </tr>
         </tbody>
       </table>
-      <p class="hint" style="text-align:center; margin-top:10px;">
-        Achieved <strong>Rank #74</strong> among <strong>8,000+</strong> global AI participants.
+
+      <p class="hint" style="text-align:center; margin-top:12px;">
+        The final <strong>ensemble model</strong> achieved an <strong>F1-micro of 0.7532</strong> and <strong>accuracy of 0.747</strong>.<br>
+        <br>
+        🏆 <strong>Achieved Rank #74</strong> among <strong>8,000+ global AI expert participants</strong> in the international challenge.
       </p>
     </section>
 
-    <div class="cta-row">
+    <!-- Conclusion -->
+    <section class="project-detail reveal">
+      <h2>Conclusions</h2>
+      <p>
+        The ensemble of Random Forest and LightGBM provided the best balance between accuracy and robustness.
+        The model’s success in the global leaderboard highlights the importance of <strong>ensemble techniques</strong> and
+        <strong>systematic validation</strong> for real-world predictive modeling in post-disaster contexts.
+      </p>
+      <p>
+        This work demonstrates how data-driven intelligence can play a key role in disaster response,
+        enabling faster prioritization of building inspections and improving overall resilience.
+      </p>
+    </section>
+
+    <div class="cta-row" style="justify-content:center;">
       <a class="btn btn--ghost" href="projects.html">← Back to Projects</a>
     </div>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© 2025 [Your Name]</p>
+      <p>© 2025 Gabriele Ciccolella</p>
     </div>
   </footer>
 
+  <!-- Animation -->
   <script>
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
@@ -116,3 +145,4 @@
 
 </body>
 </html>
+
