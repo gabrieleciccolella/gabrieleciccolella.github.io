@@ -5,7 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Earthquake Damage Prediction (Nepal) – Gabriele Ciccolella</title>
   <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    /* Enhanced results table styling */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+
+    .results-table--enhanced {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #11182e, #0e1530);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      color: #e9f1ff;
+    }
+
+    .results-table--enhanced th,
+    .results-table--enhanced td {
+      padding: 14px 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .results-table--enhanced th {
+      background: rgba(76, 201, 240, 0.12);
+      color: #4cc9f0;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .results-table--enhanced tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .results-table--enhanced tr:hover {
+      background: rgba(76, 201, 240, 0.08);
+      transition: background 0.25s ease;
+    }
+
+    .highlight-row {
+      background: rgba(76, 201, 240, 0.15);
+      border-top: 1px solid rgba(76, 201, 240, 0.3);
+      border-bottom: 1px solid rgba(76, 201, 240, 0.3);
+      box-shadow: 0 0 15px rgba(76, 201, 240, 0.25);
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Floating lamp button linking to GitHub -->
@@ -23,7 +73,7 @@
 
   <!-- Hero with background image -->
   <header class="hero" style="
-    background-image: url('assets/img/nepal_terrremoto.jpg');
+    background-image: url('assets/img/terremoto_nepal.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -31,7 +81,9 @@
     <div style="background: rgba(0,0,0,0.55); position:absolute; inset:0; z-index:0;"></div>
     <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Earthquake Damage Prediction (Nepal)</h1>
-      <p class="subtitle reveal">Predicting post-earthquake building damage using advanced ensemble ML techniques and nested cross-validation.</p>
+      <p class="subtitle reveal">
+        Predicting post-earthquake building damage using advanced ensemble ML techniques and nested cross-validation.
+      </p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -46,67 +98,72 @@
     <section class="project-detail reveal">
       <h2>Overview</h2>
       <p>
-        This project focuses on developing a <strong>predictive model</strong> for assessing the structural damage level of buildings following the <strong>2015 Nepal earthquake</strong>.
-        Leveraging an ensemble of multiple <strong>Machine Learning models</strong> — including <em>Random Forest</em> and <em>LightGBM</em> — and rigorous <strong>nested cross-validation</strong>,
-        the goal was to deliver accurate, reliable, and generalizable predictions for post-disaster damage assessment.
+        This project focuses on developing a <strong>predictive model</strong> to estimate building damage levels following the
+        <strong>2015 Nepal earthquake</strong>. It combines <strong>Random Forest</strong> and <strong>LightGBM</strong> models in an
+        <strong>ensemble approach</strong>, supported by rigorous <strong>nested cross-validation</strong> for reliable performance estimation.
       </p>
     </section>
 
-    <!-- Approach -->
+    <!-- Methodology -->
     <section class="project-detail reveal">
       <h2>Methodology</h2>
       <ul class="bullets">
-        <li><strong>Task:</strong> Supervised classification of post-earthquake building damage levels.</li>
-        <li><strong>Models:</strong> Random Forest (tuned via <em>Randomized Search</em>) and LightGBM (optimized with <em>Optuna</em>).</li>
-        <li><strong>Evaluation:</strong> <em>Nested Cross-Validation (5×3)</em>:
+        <li><strong>Task:</strong> Supervised classification of post-earthquake building damage.</li>
+        <li><strong>Models:</strong> Random Forest (Randomized Search) and LightGBM (Optuna optimization).</li>
+        <li><strong>Evaluation:</strong> Nested Cross-Validation (5×3)
           <ul>
-            <li>5 outer folds for performance estimation.</li>
-            <li>3 inner folds for hyperparameter tuning and model selection.</li>
+            <li>5 outer folds for unbiased performance assessment.</li>
+            <li>3 inner folds for hyperparameter tuning.</li>
           </ul>
         </li>
-        <li><strong>Final Model:</strong> Ensemble of Random Forest and LightGBM for improved generalization.</li>
-        <li><strong>Metric:</strong> Mean <strong>F1-micro</strong> and <strong>Accuracy</strong> across outer folds.</li>
+        <li><strong>Final Model:</strong> Ensemble of Random Forest and LightGBM for higher stability and accuracy.</li>
+        <li><strong>Metric:</strong> Mean <strong>F1-Micro</strong> and <strong>Accuracy</strong> across outer folds.</li>
       </ul>
     </section>
 
     <!-- Model Performance Summary -->
     <section class="project-detail reveal">
       <h2>Model Performance Summary</h2>
-      <table class="results-table results-table--fancy">
-        <thead>
-          <tr>
-            <th>Model</th>
-            <th>F1-micro</th>
-            <th>Accuracy</th>
-            <th>Validation Strategy</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Random Forest (Randomized Search)</td>
-            <td>0.7491</td>
-            <td>0.742</td>
-            <td>Nested CV (5×3)</td>
-          </tr>
-          <tr>
-            <td>LightGBM (Optuna)</td>
-            <td>0.7498</td>
-            <td>0.743</td>
-            <td>Nested CV (5×3)</td>
-          </tr>
-          <tr class="highlight">
-            <td><strong>Ensemble Model (RF + LightGBM)</strong></td>
-            <td><strong>0.7532</strong></td>
-            <td><strong>0.747</strong></td>
-            <td><em>Final Ensemble Evaluation</em></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="results-table results-table--enhanced">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>F1-Micro</th>
+              <th>Accuracy</th>
+              <th>Validation Strategy</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Random Forest (Randomized Search)</td>
+              <td>0.7491</td>
+              <td>0.742</td>
+              <td>Nested CV (5×3)</td>
+              <td>Strong baseline with consistent results.</td>
+            </tr>
+            <tr>
+              <td>LightGBM (Optuna)</td>
+              <td>0.7498</td>
+              <td>0.743</td>
+              <td>Nested CV (5×3)</td>
+              <td>Fast convergence and efficient tuning.</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Ensemble Model (RF + LightGBM)</strong></td>
+              <td><strong>0.7532</strong></td>
+              <td><strong>0.747</strong></td>
+              <td><em>Final Ensemble Evaluation</em></td>
+              <td><strong>Best overall performance ✅</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p class="hint" style="text-align:center; margin-top:12px;">
-        The final <strong>ensemble model</strong> achieved an <strong>F1-micro of 0.7532</strong> and <strong>accuracy of 0.747</strong>.<br>
-        <br>
-        🏆 <strong>Achieved Rank #74</strong> among <strong>8,000+ global AI expert participants</strong> in the international challenge.
+      <p class="hint" style="text-align:center; margin-top:14px;">
+        The <strong>ensemble model</strong> achieved an <strong>F1-Micro of 0.7532</strong> and <strong>Accuracy of 0.747</strong>.<br>
+        🏆 <strong>Achieved Rank #74</strong> among <strong>8,000+ global AI expert participants</strong>.
       </p>
     </section>
 
@@ -114,19 +171,18 @@
     <section class="project-detail reveal">
       <h2>Conclusions</h2>
       <p>
-        The ensemble of Random Forest and LightGBM provided the best balance between accuracy and robustness.
-        The model’s success in the global leaderboard highlights the importance of <strong>ensemble techniques</strong> and
-        <strong>systematic validation</strong> for real-world predictive modeling in post-disaster contexts.
+        The ensemble approach combining Random Forest and LightGBM achieved the most balanced and reliable results.
+        These findings underline the importance of model diversity and systematic validation in large-scale predictive modeling.
       </p>
       <p>
-        This work demonstrates how data-driven intelligence can play a key role in disaster response,
-        enabling faster prioritization of building inspections and improving overall resilience.
+        This work demonstrates how data-driven intelligence can support <strong>disaster response</strong>,
+        improving resource allocation and enabling faster post-earthquake interventions.
       </p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn--ghost" href="projects.html">← Back to Projects</a>
+      </div>
     </section>
 
-    <div class="cta-row" style="justify-content:center;">
-      <a class="btn btn--ghost" href="projects.html">← Back to Projects</a>
-    </div>
   </main>
 
   <footer class="footer">
@@ -135,7 +191,7 @@
     </div>
   </footer>
 
-  <!-- Animation -->
+  <!-- Reveal animation -->
   <script>
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
@@ -145,4 +201,3 @@
 
 </body>
 </html>
-
