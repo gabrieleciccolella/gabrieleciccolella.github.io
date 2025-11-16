@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cancer Cell Classification – [Your Name]</title>
+  <title>Cancer Cell Classification – Gabriele Ciccolella</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -31,7 +31,7 @@
     <div style="background: rgba(0,0,0,0.55); position:absolute; inset:0; z-index:0;"></div>
     <div class="container" style="position:relative; z-index:1;">
       <h1 class="reveal">Cancer Cell Classification</h1>
-      <p class="subtitle reveal">A complete k-NN based pipeline for the identification of benign and malignant cells.</p>
+      <p class="subtitle reveal">Manual K-NN implementation for benign vs malignant cell identification.</p>
       <nav class="nav">
         <a href="index.html" class="nav__link">Home</a>
         <a href="projects.html" class="nav__link active">Projects</a>
@@ -46,17 +46,33 @@
     <section class="project-detail reveal">
       <h2>Project Overview</h2>
       <p>
-        The main goal of this project is to build a <strong>comprehensive machine learning pipeline</strong> for the 
-        classification of cancer cells, aiming to distinguish between <strong>benign</strong> and <strong>malignant</strong> samples. 
-        Using a combination of advanced <strong>data preprocessing</strong> and multiple <strong>validation strategies</strong> 
-        (Holdout, Random Subsampling, and Stratified Shuffle Split), the model ensures flexibility, robustness, 
-        and interpretability of results.
+        This project focuses on designing and implementing a <strong>supervised learning pipeline</strong> to classify cancer cell samples
+        into <strong>benign</strong> and <strong>malignant</strong> categories.  
+        The central goal was to develop an end-to-end system capable of reliable medical prediction while maintaining interpretability.
       </p>
       <p>
-        In the context of oncology, accurately distinguishing between benign and malignant cells is critical for 
-        early and reliable diagnosis. The dataset used in this study includes key cell-based metrics and indices 
-        that serve as important diagnostic features. This pipeline aims to offer a practical and data-driven 
-        decision-support tool for professionals in the medical field.
+        The entire algorithm was based on the <strong>K-Nearest Neighbors (K-NN)</strong> method — a simple yet powerful
+        distance-based classifier. The key characteristic of this work is that the <strong>K-NN algorithm was implemented manually</strong>,
+        <strong>without relying on external libraries</strong> such as <code>scikit-learn</code>.
+      </p>
+      <p>
+        This manual approach allowed a deeper understanding of the mathematical foundations of distance metrics, normalization,
+        and decision logic — essential aspects of machine learning transparency and reproducibility.
+      </p>
+    </section>
+
+    <!-- Methodology -->
+    <section class="project-detail reveal">
+      <h2>Methodology</h2>
+      <ul class="bullets">
+        <li><strong>Algorithm:</strong> Custom implementation of <em>K-Nearest Neighbors</em> (K-NN) from scratch in Python.</li>
+        <li><strong>Distance Metrics:</strong> Euclidean and Manhattan distances tested for robustness.</li>
+        <li><strong>Normalization:</strong> Min-Max scaling applied to avoid bias from large numerical ranges.</li>
+        <li><strong>Cross-Validation:</strong> Custom validation routines using multiple splitting strategies (Holdout, Random Subsampling, Stratified Shuffle Split).</li>
+        <li><strong>Decision Logic:</strong> Majority vote across nearest neighbors, dynamically adjusting <em>k</em> to optimize accuracy.</li>
+      </ul>
+      <p>
+        This structured implementation ensured full control over data flow, metric calculations, and classification performance.
       </p>
     </section>
 
@@ -64,35 +80,46 @@
     <section class="project-detail reveal">
       <h2>Validation Strategies</h2>
       <ul class="bullets">
-        <li><strong>Holdout:</strong> A classic split where the user selects the training percentage (e.g., 80%), and the rest is used for testing.</li>
-        <li><strong>Random Subsampling:</strong> Multiple random splits of the dataset. The user defines the number of iterations and training/test proportions.</li>
-        <li><strong>Stratified Validation:</strong> A variation that maintains class balance (benign/malignant) in each split, ideal for imbalanced datasets.</li>
+        <li><strong>Holdout:</strong> Fixed percentage split (e.g., 80% training / 20% test).</li>
+        <li><strong>Random Subsampling:</strong> Multiple random dataset splits to assess model consistency.</li>
+        <li><strong>Stratified Validation:</strong> Maintains benign/malignant balance in every iteration — ideal for imbalanced data.</li>
       </ul>
-      <p class="hint">Each strategy offers a different way to evaluate the model’s generalization and stability.</p>
+      <p class="hint">Each method tests the generalization of the manually implemented K-NN model.</p>
     </section>
 
-    <!-- Metrics Section -->
+    <!-- Evaluation Metrics -->
     <section class="project-detail reveal">
       <h2>Evaluation Metrics</h2>
       <p>
-        Once the model evaluation is complete, several key metrics are automatically computed to provide a 
-        comprehensive view of performance:
+        Several metrics were calculated after each validation to provide a detailed understanding of the classifier’s performance:
       </p>
       <ul class="bullets">
-        <li><strong>Accuracy:</strong> Percentage of correctly classified samples.</li>
-        <li><strong>Error Rate:</strong> Percentage of misclassified samples.</li>
-        <li><strong>Sensitivity (Recall):</strong> Ability to correctly identify malignant cells.</li>
-        <li><strong>Specificity:</strong> Ability to correctly identify benign cells.</li>
-        <li><strong>Geometric Mean:</strong> Balances Sensitivity and Specificity for a more stable evaluation.</li>
+        <li><strong>Accuracy:</strong> Overall proportion of correctly classified samples.</li>
+        <li><strong>Error Rate:</strong> Fraction of incorrect classifications.</li>
+        <li><strong>Sensitivity (Recall):</strong> Ability to correctly detect malignant cells.</li>
+        <li><strong>Specificity:</strong> Ability to correctly detect benign cells.</li>
+        <li><strong>Geometric Mean:</strong> Balances Sensitivity and Specificity for reliable global evaluation.</li>
       </ul>
       <p>
-        These metrics together offer a holistic view of model behavior, helping identify both strengths and 
-        weaknesses under different validation setups.
+        These metrics offered a holistic and interpretable view of how the manually coded K-NN behaved under multiple validation conditions.
       </p>
     </section>
 
-    
+    <!-- Results Summary -->
+    <section class="project-detail reveal">
+      <h2>Results Summary</h2>
+      <p>
+        The manually implemented K-NN achieved results comparable to standard library implementations,
+        confirming the correctness and stability of the custom code. The classifier demonstrated solid accuracy
+        and balanced sensitivity/specificity trade-offs, proving the reliability of a from-scratch ML pipeline.
+      </p>
+      <p>
+        Beyond its performance, the project emphasized <strong>algorithmic transparency</strong> and <strong>educational insight</strong> —
+        showcasing how classical methods can still serve as excellent teaching and diagnostic tools in AI-driven medicine.
+      </p>
+    </section>
 
+    <!-- Back Button -->
     <div class="cta-row">
       <a class="btn btn--ghost" href="projects.html">← Back to Projects</a>
     </div>
@@ -100,10 +127,11 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© 2025 [Your Name]</p>
+      <p>© 2025 Gabriele Ciccolella</p>
     </div>
   </footer>
 
+  <!-- Reveal Animation -->
   <script>
     document.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.animationDelay = (i * 120) + 'ms';
@@ -113,3 +141,4 @@
 
 </body>
 </html>
+
