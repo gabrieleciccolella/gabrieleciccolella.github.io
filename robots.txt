@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gabrieleciccolella.github.io/sitemap.xml
