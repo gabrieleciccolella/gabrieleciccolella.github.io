@@ -8,7 +8,7 @@ LINKEDIN = "https://www.linkedin.com/in/gabriele-ciccolella-7023871b0/"
 GITHUB = "https://github.com/gabrieleciccolella"
 DL_REPO = GITHUB + "/weather-aware-pv-forecasting"
 THESIS = "assets/documents/Gabriele-Ciccolella-MSc-Thesis.pdf"
-CV = "assets/documents/Gabriele-Ciccolella-CV.pdf"
+CV = "assets/documents/CV_Gabriele_Ciccolella_EN_AI.pdf"
 ARROW = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
 EXTERNAL = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M6 7h11v11"/></svg>'
 
